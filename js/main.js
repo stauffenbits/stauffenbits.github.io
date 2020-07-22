@@ -91,4 +91,4 @@ var heart = async function(){
   await wFor(100);
 }
 
-window.heart = heart;
+heart();

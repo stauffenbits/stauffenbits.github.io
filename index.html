@@ -52,24 +52,6 @@
       <h2 class="closing decor">}</h2>
     </section>
 
-    <!-- Eight Queens -->
-    <section class="col-4">
-      <h2 class="opening decor">{</h2>
-      <a class="title" href="#" onclick="toggleSectionBody(this)">eight queens</a>
-      <span class="hidden section-body">...</span>
-
-      <div class="hidden section-body">
-        <p>
-          The eBook <a target="_blank" href="https://www.amazon.com/Eight-Queens-Solutions-EIght-Problem-ebook/dp/B08BRKJPV5">Eight Queens - 76 Solutions to the Eight Queens Problem</a>
-          is out now on Amazon! It features an introduction by myself, and beautiful artwork by Jordan Kump of ZoundsDesigns. Hardly any trees were killed for this book.
-        </p>
-        <p>There's also the <a target="_blank" href="https://stauffenbits.github.io/eight-queens">web page</a> I used to create the pages for the book. Check out the source code for an example of a web worker in action.</p>
-        <p>And of course, you can find the source at <a target="_blank" href="https://github.com/stauffenbits/eight-queens">github</a>.</p>
-      </div>
-
-      <h2 class="closing decor">}</h2>
-    </section>
-    
     <!-- Resume -->
     <section class="col-4">
       <h2 class="opening decor">{</h2>
@@ -95,10 +77,28 @@
       <h2 class="closing decor">}</h2>
     </section>
 
+    <!-- Eight Queens -->
+    <section class="col-4">
+      <h2 class="opening decor">{</h2>
+      <a class="title" href="#" onclick="toggleSectionBody(this)">eight queens</a>
+      <span class="hidden section-body">...</span>
+
+      <div class="hidden section-body">
+        <p>
+          The eBook <a target="_blank" href="https://www.amazon.com/Eight-Queens-Solutions-EIght-Problem-ebook/dp/B08BRKJPV5">Eight Queens - 76 Solutions to the Eight Queens Problem</a>
+          is out now on Amazon! It features an introduction by myself, and beautiful artwork by Jordan Kump of ZoundsDesigns. Hardly any trees were killed for this book.
+        </p>
+        <p>There's also the <a target="_blank" href="https://stauffenbits.github.io/eight-queens">web page</a> I used to create the pages for the book. Check out the source code for an example of a web worker in action.</p>
+        <p>And of course, you can find the source at <a target="_blank" href="https://github.com/stauffenbits/eight-queens">github</a>.</p>
+      </div>
+
+      <h2 class="closing decor">}</h2>
+    </section>
+
     <!-- FourD -->
     <section class="col-4">
       <h2 class="opening decor">{</h2>
-      <a class="title" href="#" onclick="toggleSectionBody(this)">fourd</a>
+      <a class="title" href="#" onclick="toggleSectionBody(this);">fourd</a>
       <span class="hidden section-body">...</span>
 
       <div class="hidden section-body">
@@ -106,6 +106,8 @@
           FourD is a utility for displaying small, but dynamic graphs inside of web pages. Here is an example:
         </p>
       
+
+        <button class="btn" onclick="heart()">Click me &lt;3</button>
         <div id="display-container">
           <div id="display">
             <canvas id="canvas" width="450px" height="450px"></canvas>
@@ -127,11 +129,14 @@
             <li>edge add_edge( source.id, target.id, options )</li>
             <li>void remove_edge( edge.id )</li>
           </ul>
+
+          You can find the source code to the whole thing <a href="https://github.com/stauffenbits/fourd-starter-kit">here</a>.
         </p>
       </div>
 
       <h2 class="closing decor">}</h2>
     </section>
+
 
     <!-- Social Cartography / CASG -->
     <section class="col-4">

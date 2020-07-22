@@ -2,6 +2,8 @@
 import FourD from '/js/vendor/fourd/fourd.js';
 import 'regenerator-runtime/runtime';
 
+
+
 window.toggleSectionBody = function(elem){
   elem.parentNode
   .querySelectorAll('.section-body')
@@ -17,18 +19,7 @@ $fourd.init('#display', {
   height: 450,
   background: 'rgba(1,1,1,0.5)'
 });
-
 $fourd.camera.position.z = -35;
-
-$fourd.make_resolve_click(function(vertex){
-  if(!vertex){
-    heart();
-
-    return;
-  }
-
-  $fourd.toggle_controls('orbit', vertex);
-})
 
 var wFor = function(t){
   return new Promise((resolve, reject) => {
@@ -89,6 +80,9 @@ var heart = async function(){
   await wFor(100);
   var fh = $fourd.graph.add_edge(f, h, eopts);
   await wFor(100);
+
+
+  $fourd.toggle_controls('orbit', e)
 }
 
-heart();
+window.heart = heart;

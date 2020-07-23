@@ -480,7 +480,7 @@ var FourD = function(){
       };
     }
 
-    material = new THREE.MeshBasicMaterial( material_args );
+    material = new THREE.MeshStandardMaterial( material_args );
     
     var cube = new THREE.Mesh( geometry, material );
     var scale = 2;

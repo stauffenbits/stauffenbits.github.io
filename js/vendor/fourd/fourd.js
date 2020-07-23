@@ -838,6 +838,8 @@ var FourD = function(){
     scene.add( camera );
     scene.add( light );
 
+    light.position.set(0, 0, 25);
+
     /*
     if(options.background){
       scene.background = new THREE.TextureLoader().load(options.background);

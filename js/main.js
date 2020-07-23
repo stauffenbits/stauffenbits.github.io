@@ -2,8 +2,6 @@
 import FourD from '/js/vendor/fourd/fourd.js';
 import 'regenerator-runtime/runtime';
 
-
-
 window.toggleSectionBody = function(elem){
   elem.parentNode
   .querySelectorAll('.section-body')

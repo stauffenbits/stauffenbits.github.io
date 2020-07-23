@@ -299,7 +299,7 @@ header {
 footer {
   position: fixed;
   bottom: 0;
-  right: 20;
+  right: 20px;
 }
 
 .section-body {

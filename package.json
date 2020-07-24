@@ -24,6 +24,7 @@
     "three": "^0.118.3"
   },
   "staticFiles": {
-    "staticPath": ["static", "dist/static"]
+    "staticPath": "static",
+    "staticOutDir": "dist"
   }
 }

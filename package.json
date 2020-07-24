@@ -24,7 +24,6 @@
     "three": "^0.118.3"
   },
   "staticFiles": {
-    "staticPath": "static",
-    "watcherGlob": "**"
+    "staticPath": ["static", "dist/static"]
   }
 }

@@ -13,9 +13,9 @@ window.toggleSectionBody = function(elem){
 var $fourd = new FourD();
 $fourd.init('#display', {
   border: '1px solid 0x007bff',
-  width: 450,
-  height: 450,
-  background: 'rgba(1,1,1,0.5)'
+  width: 400,
+  height: 400,
+  background: 'rgba(1,1,1,1)'
 });
 $fourd.camera.position.z = -35;
 
@@ -27,11 +27,11 @@ var wFor = function(t){
 
 var heart = async function(){
   var vopts = {
-    cube: {size: 10, color: 0xef0505}
+    cube: {size: 10, color: 0x8f1b99}
   }
 
   var eopts = {
-    color: 0xff614b,
+    color: 0xff6347,
     strength: 1.0
   }
 

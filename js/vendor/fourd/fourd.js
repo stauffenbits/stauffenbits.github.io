@@ -296,10 +296,19 @@ var FourD = function(){
   };
 
   Edge.prototype.paint = function(scene, options){
-    options = Object.assign({
-      color: 0x007bff,
-      paint: true
-    }, options);
+
+    if(options === undefined){
+      options = this.options;
+    }
+
+    if(options.color === undefined){
+      options.color = 0x000000;
+    }
+
+    if(options.paint === undefined){
+      options.paint = true;
+    }
+
     this.object = line(scene, this.source, this.target, options);
   };
 
@@ -394,7 +403,7 @@ var FourD = function(){
       }
     }
     
-    edge.paint(this.scene);
+    edge.paint(this.scene, edge.options);
     return edge;
   };
 	

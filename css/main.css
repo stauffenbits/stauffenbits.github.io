@@ -347,7 +347,7 @@ span.section-body {
   font-weight: normal;
   background-color: rgba(238, 224, 224, 0.5);
   z-index: 120;
-  border: 1px dashed cornflowblue;
+  border: 1px dashed cornflowerblue;
   margin: 0;
   padding: 0;
 }
@@ -358,5 +358,56 @@ canvas {
 }
 
 a {
-  color: #8f1b99;
+  color: lightskyblue;
+}
+
+.jmm-collapsed.t01 {
+  background: url('/static/A Sketch P8-01.jpeg') no-repeat;
+}
+
+.jmm-collapsed.t02 {
+  background: url('/static/A Sketch P8-02.jpeg') no-repeat;
+}
+
+.jmm-collapsed.t03 {
+  background: url('/static/A Sketch P8-03.jpeg') no-repeat;
+}
+
+.jmm-collapsed.t04 {
+  background: url('/static/A Sketch P8-01.jpeg') no-repeat;
+}
+
+.jmm-collapsed.t05 {
+  background: url('/static/A Sketch P8-05.jpeg') no-repeat;
+}
+
+.jmm-collapsed.t06 {
+  background: url('/static/A Sketch P8-01.jpeg') no-repeat;
+}
+
+.jmm-collapsed.t07 {
+  background: url('/static/A Sketch P8-04.jpeg') no-repeat;
+}
+
+.jmm-collapsed.t08 {
+  background: url('/static/A Sketch P8-01.jpeg') no-repeat;
+}
+
+.jmm-collapsed.t09 {
+  background: url('/static/A Sketch P8-02.jpeg') no-repeat;
+}
+
+.jmm-collapsed {
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  padding-bottom: 50px;
+}
+
+.decor {
+  color: tomato;
+}
+
+.jmm-collapsed>.title, .jmm-collapsed>.decor {
+  transform: translateY(15px);
 }

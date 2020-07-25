@@ -2,7 +2,7 @@
   "name": "stauffenbits.github.io",
   "version": "0.0.1",
   "description": "",
-  "keywords": "",
+  "keywords": ["portfolio"],
   "license": "",
   "author": "stauffenbits@pm.me",
   "scripts": {
@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-css-url-loader": "^1.0.5",
     "parcel-plugin-static-files-copy": "^2.4.3"
   },
   "dependencies": {
@@ -22,5 +23,8 @@
     "popper.js": "^1.16.1",
     "regenerator-runtime": "^0.13.7",
     "three": "^0.118.3"
+  },    
+  "staticFiles": {
+    "staticPath": ["static"]
   }
 }

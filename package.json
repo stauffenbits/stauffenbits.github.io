@@ -1,10 +1,10 @@
 {
-  "name": " ",
+  "name": "stauffenbits.github.io",
   "version": "0.0.1",
   "description": "",
   "keywords": "",
   "license": "",
-  "author": "",
+  "author": "stauffenbits@pm.me",
   "scripts": {
     "build": "parcel build index.html",
     "dev": "parcel index.html --open",
@@ -24,7 +24,9 @@
     "three": "^0.118.3"
   },
   "staticFiles": {
-    "staticPath": "static",
-    "staticOutDir": "./dist/static"
+    "staticPath": [{
+      "outDirPattern": "**/dist",
+      "staticPath": "static"
+    }]
   }
 }

@@ -25,6 +25,6 @@
   },
   "staticFiles": {
     "staticPath": "static",
-    "staticOutDir": "./dist/"
+    "staticOutDir": "./dist/static"
   }
 }

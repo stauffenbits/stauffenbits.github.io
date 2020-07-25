@@ -1,11 +1,6 @@
 
 import FourD from '/js/vendor/fourd/fourd.js';
 import 'regenerator-runtime/runtime';
-import '../static/A Sketch P8-01.jpeg';
-import '../static/A Sketch P8-02.jpeg';
-import '../static/A Sketch P8-03.jpeg';
-import '../static/A Sketch P8-04.jpeg';
-import '../static/A Sketch P8-05.jpeg';
 
 window.toggleSectionBody = function(elem){
   elem.parentNode

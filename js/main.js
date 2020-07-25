@@ -65,6 +65,7 @@ var heart = async function(){
   await wFor(100);
   var be = $fourd.graph.add_edge(b, e, eopts);
   await wFor(100);
+
   var ce = $fourd.graph.add_edge(c, e, eopts);
   await wFor(100);
   var cf = $fourd.graph.add_edge(c, f, eopts);

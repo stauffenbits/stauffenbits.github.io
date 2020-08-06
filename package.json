@@ -2,12 +2,14 @@
   "name": "stauffenbits.github.io",
   "version": "0.0.1",
   "description": "",
-  "keywords": ["portfolio"],
+  "keywords": [
+    "portfolio"
+  ],
   "license": "",
   "author": "stauffenbits@pm.me",
   "scripts": {
     "build": "parcel build index.html",
-    "github": "rm dist/* -rf; rm docs/* -rf; parcel build index.html --public-url https://stauffenbits.github.io/  && cp dist docs -r && git add . && git commit -m 'auto' && git push github main",
+    "github": "rm dist/* -rf; rm docs/* -rf; parcel build index.html --public-url https://stauffenbits.github.io/  && cp dist/* docs/. -r && git add . && git commit -m 'auto' && git push github main",
     "dev": "parcel index.html --open",
     "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,10 +28,18 @@
     "three": "^0.118.3"
   },
   "staticFiles": {
-    "staticPath": ["static"]
+    "staticPath": [
+      "static"
+    ]
   },
   "css-url-loader": {
-    "exts": ["png", "svg", "jpg", "jpeg", "gif"],
+    "exts": [
+      "png",
+      "svg",
+      "jpg",
+      "jpeg",
+      "gif"
+    ],
     "limit": 1000
   }
 }

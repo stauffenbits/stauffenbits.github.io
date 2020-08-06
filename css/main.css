@@ -397,6 +397,10 @@ a {
   background: url('../static/A Sketch P8-02.jpeg') no-repeat;
 }
 
+.jmm-collapsed.t10 {
+  background: url('../static/background-box.png') no-repeat;
+}
+
 .jmm-collapsed {
   background-size: contain;
   background-repeat: no-repeat;
@@ -404,10 +408,27 @@ a {
   padding-bottom: 50px;
 }
 
-.decor {
+h2.decor {
   color: tomato;
 }
 
-.jmm-collapsed>.title, .jmm-collapsed>.decor, span.hidden.section-body {
+a.decor {
+  color: purple;
+}
+
+.title.decor {
+  color: purple !important;
+}
+
+.hidden .section-body.decor {
+  transform: translateY(15px);
+}
+
+.decor {
+  transform: translateY(15px);
+}
+
+
+.jmm-collapsed>.title {
   transform: translateY(15px);
 }

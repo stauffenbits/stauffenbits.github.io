@@ -1,5 +1,1084 @@
-parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcelRequire,u="function"==typeof require&&require;function f(t,n){if(!r[t]){if(!e[t]){var i="function"==typeof parcelRequire&&parcelRequire;if(!n&&i)return i(t,!0);if(o)return o(t,!0);if(u&&"string"==typeof t)return u(t);var c=new Error("Cannot find module '"+t+"'");throw c.code="MODULE_NOT_FOUND",c}p.resolve=function(r){return e[t][1][r]||r},p.cache={};var l=r[t]=new f.Module(t);e[t][0].call(l.exports,p,l,l.exports,this)}return r[t].exports;function p(e){return f(p.resolve(e))}}f.isParcelRequire=!0,f.Module=function(e){this.id=e,this.bundle=f,this.exports={}},f.modules=e,f.cache=r,f.parent=o,f.register=function(r,t){e[r]=[function(e,r){r.exports=t},{}]};for(var c=0;c<t.length;c++)try{f(t[c])}catch(e){i||(i=e)}if(t.length){var l=f(t[t.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==typeof define&&define.amd?define(function(){return l}):n&&(this[n]=l)}if(parcelRequire=f,i)throw i;return f}({"H1A5":[function(require,module,exports) {
+// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+parcelRequire = (function (modules, cache, entry, globalName) {
+  // Save the require from previous bundle to this closure if any
+  var previousRequire = typeof parcelRequire === 'function' && parcelRequire;
+  var nodeRequire = typeof require === 'function' && require;
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire = typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error('Cannot find module \'' + name + '\'');
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = cache[name] = new newRequire.Module(name);
+
+      modules[name][0].call(module.exports, localRequire, module, module.exports, this);
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x){
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x){
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function (id, exports) {
+    modules[id] = [function (require, module) {
+      module.exports = exports;
+    }, {}];
+  };
+
+  var error;
+  for (var i = 0; i < entry.length; i++) {
+    try {
+      newRequire(entry[i]);
+    } catch (e) {
+      // Save first error but execute all entries
+      if (!error) {
+        error = e;
+      }
+    }
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === "object" && typeof module !== "undefined") {
+      module.exports = mainExports;
+
+    // RequireJS
+    } else if (typeof define === "function" && define.amd) {
+     define(function () {
+       return mainExports;
+     });
+
+    // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+
+  // Override the current require with this new one
+  parcelRequire = newRequire;
+
+  if (error) {
+    // throw error from earlier, _after updating parcelRequire_
+    throw error;
+  }
+
+  return newRequire;
+})({"H1A5":[function(require,module,exports) {
 var global = arguments[3];
-var t=arguments[3];Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e="undefined"!=typeof window&&"undefined"!=typeof document&&"undefined"!=typeof navigator;const o=function(){const t=["Edge","Trident","Firefox"];for(let o=0;o<t.length;o+=1)if(e&&0<=navigator.userAgent.indexOf(t[o]))return 1;return 0}();function n(t){let e=!1;return()=>{e||(e=!0,window.Promise.resolve().then(()=>{e=!1,t()}))}}function r(t){let e=!1;return()=>{e||(e=!0,setTimeout(()=>{e=!1,t()},o))}}const i=e&&window.Promise;var s=i?n:r;function f(t){return t&&"[object Function]"==={}.toString.call(t)}function p(t,e){if(1!==t.nodeType)return[];const o=t.ownerDocument.defaultView.getComputedStyle(t,null);return e?o[e]:o}function a(t){return"HTML"===t.nodeName?t:t.parentNode||t.host}function l(t){if(!t)return document.body;switch(t.nodeName){case"HTML":case"BODY":return t.ownerDocument.body;case"#document":return t.body}const{overflow:e,overflowX:o,overflowY:n}=p(t);return/(auto|scroll|overlay)/.test(e+n+o)?t:l(a(t))}function c(t){return t&&t.referenceNode?t.referenceNode:t}const d=e&&!(!window.MSInputMethodContext||!document.documentMode),u=e&&/MSIE 10/.test(navigator.userAgent);function h(t){return 11===t?d:10===t?u:d||u}function m(t){if(!t)return document.documentElement;const e=h(10)?document.body:null;let o=t.offsetParent||null;for(;o===e&&t.nextElementSibling;)o=(t=t.nextElementSibling).offsetParent;const n=o&&o.nodeName;return n&&"BODY"!==n&&"HTML"!==n?-1!==["TH","TD","TABLE"].indexOf(o.nodeName)&&"static"===p(o,"position")?m(o):o:t?t.ownerDocument.documentElement:document.documentElement}function g(t){const{nodeName:e}=t;return"BODY"!==e&&("HTML"===e||m(t.firstElementChild)===t)}function b(t){return null===t.parentNode?t:b(t.parentNode)}function w(t,e){if(!(t&&t.nodeType&&e&&e.nodeType))return document.documentElement;const o=t.compareDocumentPosition(e)&Node.DOCUMENT_POSITION_FOLLOWING,n=o?t:e,r=o?e:t,i=document.createRange();i.setStart(n,0),i.setEnd(r,0);const{commonAncestorContainer:s}=i;if(t!==s&&e!==s||n.contains(r))return g(s)?s:m(s);const f=b(t);return f.host?w(f.host,e):w(t,b(e).host)}function y(t,e="top"){const o="top"===e?"scrollTop":"scrollLeft",n=t.nodeName;if("BODY"===n||"HTML"===n){const e=t.ownerDocument.documentElement;return(t.ownerDocument.scrollingElement||e)[o]}return t[o]}function v(t,e,o=!1){const n=y(e,"top"),r=y(e,"left"),i=o?-1:1;return t.top+=n*i,t.bottom+=n*i,t.left+=r*i,t.right+=r*i,t}function E(t,e){const o="x"===e?"Left":"Top",n="Left"==o?"Right":"Bottom";return parseFloat(t[`border${o}Width`])+parseFloat(t[`border${n}Width`])}function x(t,e,o,n){return Math.max(e[`offset${t}`],e[`scroll${t}`],o[`client${t}`],o[`offset${t}`],o[`scroll${t}`],h(10)?parseInt(o[`offset${t}`])+parseInt(n[`margin${"Height"===t?"Top":"Left"}`])+parseInt(n[`margin${"Height"===t?"Bottom":"Right"}`]):0)}function O(t){const e=t.body,o=t.documentElement,n=h(10)&&getComputedStyle(o);return{height:x("Height",e,o,n),width:x("Width",e,o,n)}}var L=Object.assign||function(t){for(var e,o=1;o<arguments.length;o++)for(var n in e=arguments[o])Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n]);return t};function T(t){return L({},t,{right:t.left+t.width,bottom:t.top+t.height})}function N(t){let e={};try{if(h(10)){e=t.getBoundingClientRect();const o=y(t,"top"),n=y(t,"left");e.top+=o,e.left+=n,e.bottom+=o,e.right+=n}else e=t.getBoundingClientRect()}catch(e){}const o={left:e.left,top:e.top,width:e.right-e.left,height:e.bottom-e.top},n="HTML"===t.nodeName?O(t.ownerDocument):{},r=n.width||t.clientWidth||o.width,i=n.height||t.clientHeight||o.height;let s=t.offsetWidth-r,f=t.offsetHeight-i;if(s||f){const e=p(t);s-=E(e,"x"),f-=E(e,"y"),o.width-=s,o.height-=f}return T(o)}function D(t,e,o=!1){var n=Math.max;const r=h(10),i="HTML"===e.nodeName,s=N(t),f=N(e),a=l(t),c=p(e),d=parseFloat(c.borderTopWidth),u=parseFloat(c.borderLeftWidth);o&&i&&(f.top=n(f.top,0),f.left=n(f.left,0));let m=T({top:s.top-f.top-d,left:s.left-f.left-u,width:s.width,height:s.height});if(m.marginTop=0,m.marginLeft=0,!r&&i){const t=parseFloat(c.marginTop),e=parseFloat(c.marginLeft);m.top-=d-t,m.bottom-=d-t,m.left-=u-e,m.right-=u-e,m.marginTop=t,m.marginLeft=e}return(r&&!o?e.contains(a):e===a&&"BODY"!==a.nodeName)&&(m=v(m,e)),m}function C(t,e=!1){var o=Math.max;const n=t.ownerDocument.documentElement,r=D(t,n),i=o(n.clientWidth,window.innerWidth||0),s=o(n.clientHeight,window.innerHeight||0),f=e?0:y(n),p=e?0:y(n,"left");return T({top:f-r.top+r.marginTop,left:p-r.left+r.marginLeft,width:i,height:s})}function F(t){const e=t.nodeName;if("BODY"===e||"HTML"===e)return!1;if("fixed"===p(t,"position"))return!0;const o=a(t);return!!o&&F(o)}function M(t){if(!t||!t.parentElement||h())return document.documentElement;let e=t.parentElement;for(;e&&"none"===p(e,"transform");)e=e.parentElement;return e||document.documentElement}function S(t,e,o,n,r=!1){let i={top:0,left:0};const s=r?M(t):w(t,c(e));if("viewport"===n)i=C(s,r);else{let o;"scrollParent"===n?"BODY"===(o=l(a(e))).nodeName&&(o=t.ownerDocument.documentElement):o="window"===n?t.ownerDocument.documentElement:n;const f=D(o,s,r);if("HTML"!==o.nodeName||F(s))i=f;else{const{height:e,width:o}=O(t.ownerDocument);i.top+=f.top-f.marginTop,i.bottom=e+f.top,i.left+=f.left-f.marginLeft,i.right=o+f.left}}const f="number"==typeof(o=o||0);return i.left+=f?o:o.left||0,i.top+=f?o:o.top||0,i.right-=f?o:o.right||0,i.bottom-=f?o:o.bottom||0,i}function W({width:t,height:e}){return t*e}function H(t,e,o,n,r,i=0){if(-1===t.indexOf("auto"))return t;const s=S(o,n,i,r),f={top:{width:s.width,height:e.top-s.top},right:{width:s.right-e.right,height:s.height},bottom:{width:s.width,height:s.bottom-e.bottom},left:{width:e.left-s.left,height:s.height}},p=Object.keys(f).map(t=>L({key:t},f[t],{area:W(f[t])})).sort((t,e)=>e.area-t.area),a=p.filter(({width:t,height:e})=>t>=o.clientWidth&&e>=o.clientHeight),l=0<a.length?a[0].key:p[0].key,c=t.split("-")[1];return l+(c?`-${c}`:"")}function $(t,e,o,n=null){return D(o,n?M(e):w(e,c(o)),n)}function B(t){const e=t.ownerDocument.defaultView.getComputedStyle(t),o=parseFloat(e.marginTop||0)+parseFloat(e.marginBottom||0),n=parseFloat(e.marginLeft||0)+parseFloat(e.marginRight||0);return{width:t.offsetWidth+n,height:t.offsetHeight+o}}function A(t){const e={left:"right",right:"left",bottom:"top",top:"bottom"};return t.replace(/left|right|bottom|top/g,t=>e[t])}function P(t,e,o){o=o.split("-")[0];const n=B(t),r={width:n.width,height:n.height},i=-1!==["right","left"].indexOf(o),s=i?"top":"left",f=i?"left":"top",p=i?"height":"width",a=i?"width":"height";return r[s]=e[s]+e[p]/2-n[p]/2,r[f]=o===f?e[f]-n[a]:e[A(f)],r}function k(t,e){return Array.prototype.find?t.find(e):t.filter(e)[0]}function I(t,e,o){if(Array.prototype.findIndex)return t.findIndex(t=>t[e]===o);const n=k(t,t=>t[e]===o);return t.indexOf(n)}function j(t,e,o){return(void 0===o?t:t.slice(0,I(t,"name",o))).forEach(t=>{t.function&&console.warn("`modifier.function` is deprecated, use `modifier.fn`!");const o=t.function||t.fn;t.enabled&&f(o)&&(e.offsets.popper=T(e.offsets.popper),e.offsets.reference=T(e.offsets.reference),e=o(e,t))}),e}function R(){if(this.state.isDestroyed)return;let t={instance:this,styles:{},arrowStyles:{},attributes:{},flipped:!1,offsets:{}};t.offsets.reference=$(this.state,this.popper,this.reference,this.options.positionFixed),t.placement=H(this.options.placement,t.offsets.reference,this.popper,this.reference,this.options.modifiers.flip.boundariesElement,this.options.modifiers.flip.padding),t.originalPlacement=t.placement,t.positionFixed=this.options.positionFixed,t.offsets.popper=P(this.popper,t.offsets.reference,t.placement),t.offsets.popper.position=this.options.positionFixed?"fixed":"absolute",t=j(this.modifiers,t),this.state.isCreated?this.options.onUpdate(t):(this.state.isCreated=!0,this.options.onCreate(t))}function U(t,e){return t.some(({name:t,enabled:o})=>o&&t===e)}function Y(t){const e=[!1,"ms","Webkit","Moz","O"],o=t.charAt(0).toUpperCase()+t.slice(1);for(let n=0;n<e.length;n++){const r=e[n],i=r?`${r}${o}`:t;if(void 0!==document.body.style[i])return i}return null}function V(){return this.state.isDestroyed=!0,U(this.modifiers,"applyStyle")&&(this.popper.removeAttribute("x-placement"),this.popper.style.position="",this.popper.style.top="",this.popper.style.left="",this.popper.style.right="",this.popper.style.bottom="",this.popper.style.willChange="",this.popper.style[Y("transform")]=""),this.disableEventListeners(),this.options.removeOnDestroy&&this.popper.parentNode.removeChild(this.popper),this}function q(t){const e=t.ownerDocument;return e?e.defaultView:window}function K(t,e,o,n){const r="BODY"===t.nodeName,i=r?t.ownerDocument.defaultView:t;i.addEventListener(e,o,{passive:!0}),r||K(l(i.parentNode),e,o,n),n.push(i)}function _(t,e,o,n){o.updateBound=n,q(t).addEventListener("resize",o.updateBound,{passive:!0});const r=l(t);return K(r,"scroll",o.updateBound,o.scrollParents),o.scrollElement=r,o.eventsEnabled=!0,o}function z(){this.state.eventsEnabled||(this.state=_(this.reference,this.options,this.state,this.scheduleUpdate))}function G(t,e){return q(t).removeEventListener("resize",e.updateBound),e.scrollParents.forEach(t=>{t.removeEventListener("scroll",e.updateBound)}),e.updateBound=null,e.scrollParents=[],e.scrollElement=null,e.eventsEnabled=!1,e}function X(){this.state.eventsEnabled&&(cancelAnimationFrame(this.scheduleUpdate),this.state=G(this.reference,this.state))}function J(t){return""!==t&&!isNaN(parseFloat(t))&&isFinite(t)}function Q(t,e){Object.keys(e).forEach(o=>{let n="";-1!==["width","height","top","right","bottom","left"].indexOf(o)&&J(e[o])&&(n="px"),t.style[o]=e[o]+n})}function Z(t,e){Object.keys(e).forEach(function(o){!1===e[o]?t.removeAttribute(o):t.setAttribute(o,e[o])})}function tt(t){return Q(t.instance.popper,t.styles),Z(t.instance.popper,t.attributes),t.arrowElement&&Object.keys(t.arrowStyles).length&&Q(t.arrowElement,t.arrowStyles),t}function et(t,e,o,n,r){const i=$(r,e,t,o.positionFixed),s=H(o.placement,i,e,t,o.modifiers.flip.boundariesElement,o.modifiers.flip.padding);return e.setAttribute("x-placement",s),Q(e,{position:o.positionFixed?"fixed":"absolute"}),o}function ot(t,e){const{popper:o,reference:n}=t.offsets,{round:r,floor:i}=Math,s=t=>t,f=r(n.width),p=r(o.width),a=-1!==["left","right"].indexOf(t.placement),l=-1!==t.placement.indexOf("-"),c=e?a||l||f%2==p%2?r:i:s,d=e?r:s;return{left:c(1==f%2&&1==p%2&&!l&&e?o.left-1:o.left),top:d(o.top),bottom:d(o.bottom),right:c(o.right)}}const nt=e&&/Firefox/i.test(navigator.userAgent);function rt(t,e){const{x:o,y:n}=e,{popper:r}=t.offsets,i=k(t.instance.modifiers,t=>"applyStyle"===t.name).gpuAcceleration;void 0!==i&&console.warn("WARNING: `gpuAcceleration` option moved to `computeStyle` modifier and will not be supported in future versions of Popper.js!");const s=void 0===i?e.gpuAcceleration:i,f=m(t.instance.popper),p=N(f),a={position:r.position},l=ot(t,2>window.devicePixelRatio||!nt),c="bottom"===o?"top":"bottom",d="right"===n?"left":"right",u=Y("transform");let h,g;if(g="bottom"==c?"HTML"===f.nodeName?-f.clientHeight+l.bottom:-p.height+l.bottom:l.top,h="right"==d?"HTML"===f.nodeName?-f.clientWidth+l.right:-p.width+l.right:l.left,s&&u)a[u]=`translate3d(${h}px, ${g}px, 0)`,a[c]=0,a[d]=0,a.willChange="transform";else{const t="bottom"==c?-1:1,e="right"==d?-1:1;a[c]=g*t,a[d]=h*e,a.willChange=`${c}, ${d}`}const b={"x-placement":t.placement};return t.attributes=L({},b,t.attributes),t.styles=L({},a,t.styles),t.arrowStyles=L({},t.offsets.arrow,t.arrowStyles),t}function it(t,e,o){const n=k(t,({name:t})=>t===e),r=!!n&&t.some(t=>t.name===o&&t.enabled&&t.order<n.order);if(!r){const t=`\`${e}\``,n=`\`${o}\``;console.warn(`${n} modifier is required by ${t} modifier in order to work, be sure to include it before ${t}!`)}return r}function st(t,e){if(!it(t.instance.modifiers,"arrow","keepTogether"))return t;let o=e.element;if("string"==typeof o){if(!(o=t.instance.popper.querySelector(o)))return t}else if(!t.instance.popper.contains(o))return console.warn("WARNING: `arrow.element` must be child of its popper element!"),t;const n=t.placement.split("-")[0],{popper:r,reference:i}=t.offsets,s=-1!==["left","right"].indexOf(n),f=s?"height":"width",a=s?"Top":"Left",l=a.toLowerCase(),c=s?"left":"top",d=s?"bottom":"right",u=B(o)[f];i[d]-u<r[l]&&(t.offsets.popper[l]-=r[l]-(i[d]-u)),i[l]+u>r[d]&&(t.offsets.popper[l]+=i[l]+u-r[d]),t.offsets.popper=T(t.offsets.popper);const h=i[l]+i[f]/2-u/2,m=p(t.instance.popper),g=parseFloat(m[`margin${a}`]),b=parseFloat(m[`border${a}Width`]);let w=h-t.offsets.popper[l]-g-b;return w=Math.max(Math.min(r[f]-u,w),0),t.arrowElement=o,t.offsets.arrow={[l]:Math.round(w),[c]:""},t}function ft(t){return"end"===t?"start":"start"===t?"end":t}var pt=["auto-start","auto","auto-end","top-start","top","top-end","right-start","right","right-end","bottom-end","bottom","bottom-start","left-end","left","left-start"];const at=pt.slice(3);function lt(t,e=!1){const o=at.indexOf(t),n=at.slice(o+1).concat(at.slice(0,o));return e?n.reverse():n}const ct={FLIP:"flip",CLOCKWISE:"clockwise",COUNTERCLOCKWISE:"counterclockwise"};function dt(t,e){if(U(t.instance.modifiers,"inner"))return t;if(t.flipped&&t.placement===t.originalPlacement)return t;const o=S(t.instance.popper,t.instance.reference,e.padding,e.boundariesElement,t.positionFixed);let n=t.placement.split("-")[0],r=A(n),i=t.placement.split("-")[1]||"",s=[];switch(e.behavior){case ct.FLIP:s=[n,r];break;case ct.CLOCKWISE:s=lt(n);break;case ct.COUNTERCLOCKWISE:s=lt(n,!0);break;default:s=e.behavior}return s.forEach((f,p)=>{if(n!==f||s.length===p+1)return t;n=t.placement.split("-")[0],r=A(n);const a=t.offsets.popper,l=t.offsets.reference,c=Math.floor,d="left"===n&&c(a.right)>c(l.left)||"right"===n&&c(a.left)<c(l.right)||"top"===n&&c(a.bottom)>c(l.top)||"bottom"===n&&c(a.top)<c(l.bottom),u=c(a.left)<c(o.left),h=c(a.right)>c(o.right),m=c(a.top)<c(o.top),g=c(a.bottom)>c(o.bottom),b="left"===n&&u||"right"===n&&h||"top"===n&&m||"bottom"===n&&g,w=-1!==["top","bottom"].indexOf(n),y=!!e.flipVariations&&(w&&"start"===i&&u||w&&"end"===i&&h||!w&&"start"===i&&m||!w&&"end"===i&&g),v=!!e.flipVariationsByContent&&(w&&"start"===i&&h||w&&"end"===i&&u||!w&&"start"===i&&g||!w&&"end"===i&&m),E=y||v;(d||b||E)&&(t.flipped=!0,(d||b)&&(n=s[p+1]),E&&(i=ft(i)),t.placement=n+(i?"-"+i:""),t.offsets.popper=L({},t.offsets.popper,P(t.instance.popper,t.offsets.reference,t.placement)),t=j(t.instance.modifiers,t,"flip"))}),t}function ut(t){const{popper:e,reference:o}=t.offsets,n=t.placement.split("-")[0],r=Math.floor,i=-1!==["top","bottom"].indexOf(n),s=i?"right":"bottom",f=i?"left":"top",p=i?"width":"height";return e[s]<r(o[f])&&(t.offsets.popper[f]=r(o[f])-e[p]),e[f]>r(o[s])&&(t.offsets.popper[f]=r(o[s])),t}function ht(t,e,o,n){var r=Math.max;const i=t.match(/((?:\-|\+)?\d*\.?\d*)(.*)/),s=+i[1],f=i[2];if(!s)return t;if(0===f.indexOf("%")){let t;switch(f){case"%p":t=o;break;case"%":case"%r":default:t=n}return T(t)[e]/100*s}if("vh"===f||"vw"===f){let t;return(t="vh"===f?r(document.documentElement.clientHeight,window.innerHeight||0):r(document.documentElement.clientWidth,window.innerWidth||0))/100*s}return s}function mt(t,e,o,n){const r=[0,0],i=-1!==["right","left"].indexOf(n),s=t.split(/(\+|\-)/).map(t=>t.trim()),f=s.indexOf(k(s,t=>-1!==t.search(/,|\s/)));s[f]&&-1===s[f].indexOf(",")&&console.warn("Offsets separated by white space(s) are deprecated, use a comma (,) instead.");const p=/\s*,\s*|\s+/;let a=-1===f?[s]:[s.slice(0,f).concat([s[f].split(p)[0]]),[s[f].split(p)[1]].concat(s.slice(f+1))];return(a=a.map((t,n)=>{const r=(1===n?!i:i)?"height":"width";let s=!1;return t.reduce((t,e)=>""===t[t.length-1]&&-1!==["+","-"].indexOf(e)?(t[t.length-1]=e,s=!0,t):s?(t[t.length-1]+=e,s=!1,t):t.concat(e),[]).map(t=>ht(t,r,e,o))})).forEach((t,e)=>{t.forEach((o,n)=>{J(o)&&(r[e]+=o*("-"===t[n-1]?-1:1))})}),r}function gt(t,{offset:e}){const{placement:o,offsets:{popper:n,reference:r}}=t,i=o.split("-")[0];let s;return s=J(+e)?[+e,0]:mt(e,n,r,i),"left"===i?(n.top+=s[0],n.left-=s[1]):"right"===i?(n.top+=s[0],n.left+=s[1]):"top"===i?(n.left+=s[0],n.top-=s[1]):"bottom"===i&&(n.left+=s[0],n.top+=s[1]),t.popper=n,t}function bt(t,e){let o=e.boundariesElement||m(t.instance.popper);t.instance.reference===o&&(o=m(o));const n=Y("transform"),r=t.instance.popper.style,{top:i,left:s,[n]:f}=r;r.top="",r.left="",r[n]="";const p=S(t.instance.popper,t.instance.reference,e.padding,o,t.positionFixed);r.top=i,r.left=s,r[n]=f,e.boundaries=p;const a=e.priority;let l=t.offsets.popper;const c={primary(t){let o=l[t];return l[t]<p[t]&&!e.escapeWithReference&&(o=Math.max(l[t],p[t])),{[t]:o}},secondary(t){const o="right"===t?"left":"top";let n=l[o];return l[t]>p[t]&&!e.escapeWithReference&&(n=Math.min(l[o],p[t]-("right"===t?l.width:l.height))),{[o]:n}}};return a.forEach(t=>{const e=-1===["left","top"].indexOf(t)?"secondary":"primary";l=L({},l,c[e](t))}),t.offsets.popper=l,t}function wt(t){const e=t.placement,o=e.split("-")[0],n=e.split("-")[1];if(n){const{reference:e,popper:r}=t.offsets,i=-1!==["bottom","top"].indexOf(o),s=i?"left":"top",f=i?"width":"height",p={start:{[s]:e[s]},end:{[s]:e[s]+e[f]-r[f]}};t.offsets.popper=L({},r,p[n])}return t}function yt(t){if(!it(t.instance.modifiers,"hide","preventOverflow"))return t;const e=t.offsets.reference,o=k(t.instance.modifiers,t=>"preventOverflow"===t.name).boundaries;if(e.bottom<o.top||e.left>o.right||e.top>o.bottom||e.right<o.left){if(!0===t.hide)return t;t.hide=!0,t.attributes["x-out-of-boundaries"]=""}else{if(!1===t.hide)return t;t.hide=!1,t.attributes["x-out-of-boundaries"]=!1}return t}function vt(t){const e=t.placement,o=e.split("-")[0],{popper:n,reference:r}=t.offsets,i=-1!==["left","right"].indexOf(o),s=-1===["top","left"].indexOf(o);return n[i?"left":"top"]=r[o]-(s?n[i?"width":"height"]:0),t.placement=A(e),t.offsets.popper=T(n),t}var Et={shift:{order:100,enabled:!0,fn:wt},offset:{order:200,enabled:!0,fn:gt,offset:0},preventOverflow:{order:300,enabled:!0,fn:bt,priority:["left","right","top","bottom"],padding:5,boundariesElement:"scrollParent"},keepTogether:{order:400,enabled:!0,fn:ut},arrow:{order:500,enabled:!0,fn:st,element:"[x-arrow]"},flip:{order:600,enabled:!0,fn:dt,behavior:"flip",padding:5,boundariesElement:"viewport",flipVariations:!1,flipVariationsByContent:!1},inner:{order:700,enabled:!1,fn:vt},hide:{order:800,enabled:!0,fn:yt},computeStyle:{order:850,enabled:!0,fn:rt,gpuAcceleration:!0,x:"bottom",y:"right"},applyStyle:{order:900,enabled:!0,fn:tt,onLoad:et,gpuAcceleration:void 0}},xt={placement:"bottom",positionFixed:!1,eventsEnabled:!0,removeOnDestroy:!1,onCreate:()=>{},onUpdate:()=>{},modifiers:Et};class Ot{constructor(t,e,o={}){this.scheduleUpdate=(()=>requestAnimationFrame(this.update)),this.update=s(this.update.bind(this)),this.options=L({},Ot.Defaults,o),this.state={isDestroyed:!1,isCreated:!1,scrollParents:[]},this.reference=t&&t.jquery?t[0]:t,this.popper=e&&e.jquery?e[0]:e,this.options.modifiers={},Object.keys(L({},Ot.Defaults.modifiers,o.modifiers)).forEach(t=>{this.options.modifiers[t]=L({},Ot.Defaults.modifiers[t]||{},o.modifiers?o.modifiers[t]:{})}),this.modifiers=Object.keys(this.options.modifiers).map(t=>L({name:t},this.options.modifiers[t])).sort((t,e)=>t.order-e.order),this.modifiers.forEach(t=>{t.enabled&&f(t.onLoad)&&t.onLoad(this.reference,this.popper,this.options,t,this.state)}),this.update();const n=this.options.eventsEnabled;n&&this.enableEventListeners(),this.state.eventsEnabled=n}update(){return R.call(this)}destroy(){return V.call(this)}enableEventListeners(){return z.call(this)}disableEventListeners(){return X.call(this)}}Ot.Utils=("undefined"==typeof window?t:window).PopperUtils,Ot.placements=pt,Ot.Defaults=xt;var Lt=Ot;exports.default=Lt;
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/*
+ Copyright (C) Federico Zivolo 2020
+ Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
+var e = 'undefined' != typeof window && 'undefined' != typeof document && 'undefined' != typeof navigator;
+
+const t = function () {
+  const t = ['Edge', 'Trident', 'Firefox'];
+
+  for (let o = 0; o < t.length; o += 1) if (e && 0 <= navigator.userAgent.indexOf(t[o])) return 1;
+
+  return 0;
+}();
+
+function o(e) {
+  let t = !1;
+  return () => {
+    t || (t = !0, window.Promise.resolve().then(() => {
+      t = !1, e();
+    }));
+  };
+}
+
+function n(e) {
+  let o = !1;
+  return () => {
+    o || (o = !0, setTimeout(() => {
+      o = !1, e();
+    }, t));
+  };
+}
+
+const i = e && window.Promise;
+var r = i ? o : n;
+
+function p(e) {
+  return e && '[object Function]' === {}.toString.call(e);
+}
+
+function d(e, t) {
+  if (1 !== e.nodeType) return [];
+  const o = e.ownerDocument.defaultView,
+        n = o.getComputedStyle(e, null);
+  return t ? n[t] : n;
+}
+
+function s(e) {
+  return 'HTML' === e.nodeName ? e : e.parentNode || e.host;
+}
+
+function f(e) {
+  if (!e) return document.body;
+
+  switch (e.nodeName) {
+    case 'HTML':
+    case 'BODY':
+      return e.ownerDocument.body;
+
+    case '#document':
+      return e.body;
+  }
+
+  const {
+    overflow: t,
+    overflowX: o,
+    overflowY: n
+  } = d(e);
+  return /(auto|scroll|overlay)/.test(t + n + o) ? e : f(s(e));
+}
+
+function a(e) {
+  return e && e.referenceNode ? e.referenceNode : e;
+}
+
+const l = e && !!(window.MSInputMethodContext && document.documentMode),
+      m = e && /MSIE 10/.test(navigator.userAgent);
+
+function h(e) {
+  return 11 === e ? l : 10 === e ? m : l || m;
+}
+
+function c(e) {
+  if (!e) return document.documentElement;
+  const t = h(10) ? document.body : null;
+  let o = e.offsetParent || null;
+
+  for (; o === t && e.nextElementSibling;) o = (e = e.nextElementSibling).offsetParent;
+
+  const n = o && o.nodeName;
+  return n && 'BODY' !== n && 'HTML' !== n ? -1 !== ['TH', 'TD', 'TABLE'].indexOf(o.nodeName) && 'static' === d(o, 'position') ? c(o) : o : e ? e.ownerDocument.documentElement : document.documentElement;
+}
+
+function u(e) {
+  const {
+    nodeName: t
+  } = e;
+  return 'BODY' !== t && ('HTML' === t || c(e.firstElementChild) === e);
+}
+
+function g(e) {
+  return null === e.parentNode ? e : g(e.parentNode);
+}
+
+function b(e, t) {
+  if (!e || !e.nodeType || !t || !t.nodeType) return document.documentElement;
+  const o = e.compareDocumentPosition(t) & Node.DOCUMENT_POSITION_FOLLOWING,
+        n = o ? e : t,
+        i = o ? t : e,
+        r = document.createRange();
+  r.setStart(n, 0), r.setEnd(i, 0);
+  const {
+    commonAncestorContainer: p
+  } = r;
+  if (e !== p && t !== p || n.contains(i)) return u(p) ? p : c(p);
+  const d = g(e);
+  return d.host ? b(d.host, t) : b(e, g(t).host);
+}
+
+function w(e, t = 'top') {
+  const o = 'top' === t ? 'scrollTop' : 'scrollLeft',
+        n = e.nodeName;
+
+  if ('BODY' === n || 'HTML' === n) {
+    const t = e.ownerDocument.documentElement,
+          n = e.ownerDocument.scrollingElement || t;
+    return n[o];
+  }
+
+  return e[o];
+}
+
+function y(e, t, o = !1) {
+  const n = w(t, 'top'),
+        i = w(t, 'left'),
+        r = o ? -1 : 1;
+  return e.top += n * r, e.bottom += n * r, e.left += i * r, e.right += i * r, e;
+}
+
+function E(e, t) {
+  const o = 'x' === t ? 'Left' : 'Top',
+        n = 'Left' == o ? 'Right' : 'Bottom';
+  return parseFloat(e[`border${o}Width`]) + parseFloat(e[`border${n}Width`]);
+}
+
+function x(e, t, o, n) {
+  return Math.max(t[`offset${e}`], t[`scroll${e}`], o[`client${e}`], o[`offset${e}`], o[`scroll${e}`], h(10) ? parseInt(o[`offset${e}`]) + parseInt(n[`margin${'Height' === e ? 'Top' : 'Left'}`]) + parseInt(n[`margin${'Height' === e ? 'Bottom' : 'Right'}`]) : 0);
+}
+
+function v(e) {
+  const t = e.body,
+        o = e.documentElement,
+        n = h(10) && getComputedStyle(o);
+  return {
+    height: x('Height', t, o, n),
+    width: x('Width', t, o, n)
+  };
+}
+
+var O = Object.assign || function (e) {
+  for (var t, o = 1; o < arguments.length; o++) for (var n in t = arguments[o], t) Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n]);
+
+  return e;
+};
+
+function L(e) {
+  return O({}, e, {
+    right: e.left + e.width,
+    bottom: e.top + e.height
+  });
+}
+
+function S(e) {
+  let t = {};
+
+  try {
+    if (h(10)) {
+      t = e.getBoundingClientRect();
+      const o = w(e, 'top'),
+            n = w(e, 'left');
+      t.top += o, t.left += n, t.bottom += o, t.right += n;
+    } else t = e.getBoundingClientRect();
+  } catch (t) {}
+
+  const o = {
+    left: t.left,
+    top: t.top,
+    width: t.right - t.left,
+    height: t.bottom - t.top
+  },
+        n = 'HTML' === e.nodeName ? v(e.ownerDocument) : {},
+        i = n.width || e.clientWidth || o.width,
+        r = n.height || e.clientHeight || o.height;
+  let p = e.offsetWidth - i,
+      s = e.offsetHeight - r;
+
+  if (p || s) {
+    const t = d(e);
+    p -= E(t, 'x'), s -= E(t, 'y'), o.width -= p, o.height -= s;
+  }
+
+  return L(o);
+}
+
+function T(e, t, o = !1) {
+  var n = Math.max;
+  const i = h(10),
+        r = 'HTML' === t.nodeName,
+        p = S(e),
+        s = S(t),
+        a = f(e),
+        l = d(t),
+        m = parseFloat(l.borderTopWidth),
+        c = parseFloat(l.borderLeftWidth);
+  o && r && (s.top = n(s.top, 0), s.left = n(s.left, 0));
+  let u = L({
+    top: p.top - s.top - m,
+    left: p.left - s.left - c,
+    width: p.width,
+    height: p.height
+  });
+
+  if (u.marginTop = 0, u.marginLeft = 0, !i && r) {
+    const e = parseFloat(l.marginTop),
+          t = parseFloat(l.marginLeft);
+    u.top -= m - e, u.bottom -= m - e, u.left -= c - t, u.right -= c - t, u.marginTop = e, u.marginLeft = t;
+  }
+
+  return (i && !o ? t.contains(a) : t === a && 'BODY' !== a.nodeName) && (u = y(u, t)), u;
+}
+
+function D(e, t = !1) {
+  var o = Math.max;
+  const n = e.ownerDocument.documentElement,
+        i = T(e, n),
+        r = o(n.clientWidth, window.innerWidth || 0),
+        p = o(n.clientHeight, window.innerHeight || 0),
+        d = t ? 0 : w(n),
+        s = t ? 0 : w(n, 'left'),
+        f = {
+    top: d - i.top + i.marginTop,
+    left: s - i.left + i.marginLeft,
+    width: r,
+    height: p
+  };
+  return L(f);
+}
+
+function C(e) {
+  const t = e.nodeName;
+  if ('BODY' === t || 'HTML' === t) return !1;
+  if ('fixed' === d(e, 'position')) return !0;
+  const o = s(e);
+  return !!o && C(o);
+}
+
+function N(e) {
+  if (!e || !e.parentElement || h()) return document.documentElement;
+  let t = e.parentElement;
+
+  for (; t && 'none' === d(t, 'transform');) t = t.parentElement;
+
+  return t || document.documentElement;
+}
+
+function P(e, t, o, n, i = !1) {
+  let r = {
+    top: 0,
+    left: 0
+  };
+  const p = i ? N(e) : b(e, a(t));
+  if ('viewport' === n) r = D(p, i);else {
+    let o;
+    'scrollParent' === n ? (o = f(s(t)), 'BODY' === o.nodeName && (o = e.ownerDocument.documentElement)) : 'window' === n ? o = e.ownerDocument.documentElement : o = n;
+    const d = T(o, p, i);
+
+    if ('HTML' === o.nodeName && !C(p)) {
+      const {
+        height: t,
+        width: o
+      } = v(e.ownerDocument);
+      r.top += d.top - d.marginTop, r.bottom = t + d.top, r.left += d.left - d.marginLeft, r.right = o + d.left;
+    } else r = d;
+  }
+  o = o || 0;
+  const d = 'number' == typeof o;
+  return r.left += d ? o : o.left || 0, r.top += d ? o : o.top || 0, r.right -= d ? o : o.right || 0, r.bottom -= d ? o : o.bottom || 0, r;
+}
+
+function B({
+  width: e,
+  height: t
+}) {
+  return e * t;
+}
+
+function H(e, t, o, n, i, r = 0) {
+  if (-1 === e.indexOf('auto')) return e;
+  const p = P(o, n, r, i),
+        d = {
+    top: {
+      width: p.width,
+      height: t.top - p.top
+    },
+    right: {
+      width: p.right - t.right,
+      height: p.height
+    },
+    bottom: {
+      width: p.width,
+      height: p.bottom - t.bottom
+    },
+    left: {
+      width: t.left - p.left,
+      height: p.height
+    }
+  },
+        s = Object.keys(d).map(e => O({
+    key: e
+  }, d[e], {
+    area: B(d[e])
+  })).sort((e, t) => t.area - e.area),
+        f = s.filter(({
+    width: e,
+    height: t
+  }) => e >= o.clientWidth && t >= o.clientHeight),
+        a = 0 < f.length ? f[0].key : s[0].key,
+        l = e.split('-')[1];
+  return a + (l ? `-${l}` : '');
+}
+
+function W(e, t, o, n = null) {
+  const i = n ? N(t) : b(t, a(o));
+  return T(o, i, n);
+}
+
+function k(e) {
+  const t = e.ownerDocument.defaultView,
+        o = t.getComputedStyle(e),
+        n = parseFloat(o.marginTop || 0) + parseFloat(o.marginBottom || 0),
+        i = parseFloat(o.marginLeft || 0) + parseFloat(o.marginRight || 0),
+        r = {
+    width: e.offsetWidth + i,
+    height: e.offsetHeight + n
+  };
+  return r;
+}
+
+function A(e) {
+  const t = {
+    left: 'right',
+    right: 'left',
+    bottom: 'top',
+    top: 'bottom'
+  };
+  return e.replace(/left|right|bottom|top/g, e => t[e]);
+}
+
+function M(e, t, o) {
+  o = o.split('-')[0];
+  const n = k(e),
+        i = {
+    width: n.width,
+    height: n.height
+  },
+        r = -1 !== ['right', 'left'].indexOf(o),
+        p = r ? 'top' : 'left',
+        d = r ? 'left' : 'top',
+        s = r ? 'height' : 'width',
+        f = r ? 'width' : 'height';
+  return i[p] = t[p] + t[s] / 2 - n[s] / 2, i[d] = o === d ? t[d] - n[f] : t[A(d)], i;
+}
+
+function F(e, t) {
+  return Array.prototype.find ? e.find(t) : e.filter(t)[0];
+}
+
+function I(e, t, o) {
+  if (Array.prototype.findIndex) return e.findIndex(e => e[t] === o);
+  const n = F(e, e => e[t] === o);
+  return e.indexOf(n);
+}
+
+function R(e, t, o) {
+  const n = void 0 === o ? e : e.slice(0, I(e, 'name', o));
+  return n.forEach(e => {
+    e['function'] && console.warn('`modifier.function` is deprecated, use `modifier.fn`!');
+    const o = e['function'] || e.fn;
+    e.enabled && p(o) && (t.offsets.popper = L(t.offsets.popper), t.offsets.reference = L(t.offsets.reference), t = o(t, e));
+  }), t;
+}
+
+function U() {
+  if (this.state.isDestroyed) return;
+  let e = {
+    instance: this,
+    styles: {},
+    arrowStyles: {},
+    attributes: {},
+    flipped: !1,
+    offsets: {}
+  };
+  e.offsets.reference = W(this.state, this.popper, this.reference, this.options.positionFixed), e.placement = H(this.options.placement, e.offsets.reference, this.popper, this.reference, this.options.modifiers.flip.boundariesElement, this.options.modifiers.flip.padding), e.originalPlacement = e.placement, e.positionFixed = this.options.positionFixed, e.offsets.popper = M(this.popper, e.offsets.reference, e.placement), e.offsets.popper.position = this.options.positionFixed ? 'fixed' : 'absolute', e = R(this.modifiers, e), this.state.isCreated ? this.options.onUpdate(e) : (this.state.isCreated = !0, this.options.onCreate(e));
+}
+
+function Y(e, t) {
+  return e.some(({
+    name: e,
+    enabled: o
+  }) => o && e === t);
+}
+
+function V(e) {
+  const t = [!1, 'ms', 'Webkit', 'Moz', 'O'],
+        o = e.charAt(0).toUpperCase() + e.slice(1);
+
+  for (let n = 0; n < t.length; n++) {
+    const i = t[n],
+          r = i ? `${i}${o}` : e;
+    if ('undefined' != typeof document.body.style[r]) return r;
+  }
+
+  return null;
+}
+
+function j() {
+  return this.state.isDestroyed = !0, Y(this.modifiers, 'applyStyle') && (this.popper.removeAttribute('x-placement'), this.popper.style.position = '', this.popper.style.top = '', this.popper.style.left = '', this.popper.style.right = '', this.popper.style.bottom = '', this.popper.style.willChange = '', this.popper.style[V('transform')] = ''), this.disableEventListeners(), this.options.removeOnDestroy && this.popper.parentNode.removeChild(this.popper), this;
+}
+
+function K(e) {
+  const t = e.ownerDocument;
+  return t ? t.defaultView : window;
+}
+
+function q(e, t, o, n) {
+  const i = 'BODY' === e.nodeName,
+        r = i ? e.ownerDocument.defaultView : e;
+  r.addEventListener(t, o, {
+    passive: !0
+  }), i || q(f(r.parentNode), t, o, n), n.push(r);
+}
+
+function z(e, t, o, n) {
+  o.updateBound = n, K(e).addEventListener('resize', o.updateBound, {
+    passive: !0
+  });
+  const i = f(e);
+  return q(i, 'scroll', o.updateBound, o.scrollParents), o.scrollElement = i, o.eventsEnabled = !0, o;
+}
+
+function G() {
+  this.state.eventsEnabled || (this.state = z(this.reference, this.options, this.state, this.scheduleUpdate));
+}
+
+function _(e, t) {
+  return K(e).removeEventListener('resize', t.updateBound), t.scrollParents.forEach(e => {
+    e.removeEventListener('scroll', t.updateBound);
+  }), t.updateBound = null, t.scrollParents = [], t.scrollElement = null, t.eventsEnabled = !1, t;
+}
+
+function X() {
+  this.state.eventsEnabled && (cancelAnimationFrame(this.scheduleUpdate), this.state = _(this.reference, this.state));
+}
+
+function J(e) {
+  return '' !== e && !isNaN(parseFloat(e)) && isFinite(e);
+}
+
+function Q(e, t) {
+  Object.keys(t).forEach(o => {
+    let n = '';
+    -1 !== ['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(o) && J(t[o]) && (n = 'px'), e.style[o] = t[o] + n;
+  });
+}
+
+function Z(e, t) {
+  Object.keys(t).forEach(function (o) {
+    const n = t[o];
+    !1 === n ? e.removeAttribute(o) : e.setAttribute(o, t[o]);
+  });
+}
+
+function $(e) {
+  return Q(e.instance.popper, e.styles), Z(e.instance.popper, e.attributes), e.arrowElement && Object.keys(e.arrowStyles).length && Q(e.arrowElement, e.arrowStyles), e;
+}
+
+function ee(e, t, o, n, i) {
+  const r = W(i, t, e, o.positionFixed),
+        p = H(o.placement, r, t, e, o.modifiers.flip.boundariesElement, o.modifiers.flip.padding);
+  return t.setAttribute('x-placement', p), Q(t, {
+    position: o.positionFixed ? 'fixed' : 'absolute'
+  }), o;
+}
+
+function te(e, t) {
+  const {
+    popper: o,
+    reference: n
+  } = e.offsets,
+        {
+    round: i,
+    floor: r
+  } = Math,
+        p = e => e,
+        d = i(n.width),
+        s = i(o.width),
+        f = -1 !== ['left', 'right'].indexOf(e.placement),
+        a = -1 !== e.placement.indexOf('-'),
+        l = t ? f || a || d % 2 == s % 2 ? i : r : p,
+        m = t ? i : p;
+
+  return {
+    left: l(1 == d % 2 && 1 == s % 2 && !a && t ? o.left - 1 : o.left),
+    top: m(o.top),
+    bottom: m(o.bottom),
+    right: l(o.right)
+  };
+}
+
+const oe = e && /Firefox/i.test(navigator.userAgent);
+
+function ne(e, t) {
+  const {
+    x: o,
+    y: n
+  } = t,
+        {
+    popper: i
+  } = e.offsets,
+        r = F(e.instance.modifiers, e => 'applyStyle' === e.name).gpuAcceleration;
+  void 0 !== r && console.warn('WARNING: `gpuAcceleration` option moved to `computeStyle` modifier and will not be supported in future versions of Popper.js!');
+  const p = void 0 === r ? t.gpuAcceleration : r,
+        d = c(e.instance.popper),
+        s = S(d),
+        f = {
+    position: i.position
+  },
+        a = te(e, 2 > window.devicePixelRatio || !oe),
+        l = 'bottom' === o ? 'top' : 'bottom',
+        m = 'right' === n ? 'left' : 'right',
+        h = V('transform');
+  let u, g;
+  if (g = 'bottom' == l ? 'HTML' === d.nodeName ? -d.clientHeight + a.bottom : -s.height + a.bottom : a.top, u = 'right' == m ? 'HTML' === d.nodeName ? -d.clientWidth + a.right : -s.width + a.right : a.left, p && h) f[h] = `translate3d(${u}px, ${g}px, 0)`, f[l] = 0, f[m] = 0, f.willChange = 'transform';else {
+    const e = 'bottom' == l ? -1 : 1,
+          t = 'right' == m ? -1 : 1;
+    f[l] = g * e, f[m] = u * t, f.willChange = `${l}, ${m}`;
+  }
+  const b = {
+    "x-placement": e.placement
+  };
+  return e.attributes = O({}, b, e.attributes), e.styles = O({}, f, e.styles), e.arrowStyles = O({}, e.offsets.arrow, e.arrowStyles), e;
+}
+
+function ie(e, t, o) {
+  const n = F(e, ({
+    name: e
+  }) => e === t),
+        i = !!n && e.some(e => e.name === o && e.enabled && e.order < n.order);
+
+  if (!i) {
+    const e = `\`${t}\``,
+          n = `\`${o}\``;
+    console.warn(`${n} modifier is required by ${e} modifier in order to work, be sure to include it before ${e}!`);
+  }
+
+  return i;
+}
+
+function re(e, t) {
+  if (!ie(e.instance.modifiers, 'arrow', 'keepTogether')) return e;
+  let o = t.element;
+
+  if ('string' == typeof o) {
+    if (o = e.instance.popper.querySelector(o), !o) return e;
+  } else if (!e.instance.popper.contains(o)) return console.warn('WARNING: `arrow.element` must be child of its popper element!'), e;
+
+  const n = e.placement.split('-')[0],
+        {
+    popper: i,
+    reference: r
+  } = e.offsets,
+        p = -1 !== ['left', 'right'].indexOf(n),
+        s = p ? 'height' : 'width',
+        f = p ? 'Top' : 'Left',
+        a = f.toLowerCase(),
+        l = p ? 'left' : 'top',
+        m = p ? 'bottom' : 'right',
+        h = k(o)[s];
+  r[m] - h < i[a] && (e.offsets.popper[a] -= i[a] - (r[m] - h)), r[a] + h > i[m] && (e.offsets.popper[a] += r[a] + h - i[m]), e.offsets.popper = L(e.offsets.popper);
+  const c = r[a] + r[s] / 2 - h / 2,
+        u = d(e.instance.popper),
+        g = parseFloat(u[`margin${f}`]),
+        b = parseFloat(u[`border${f}Width`]);
+  let w = c - e.offsets.popper[a] - g - b;
+  return w = Math.max(Math.min(i[s] - h, w), 0), e.arrowElement = o, e.offsets.arrow = {
+    [a]: Math.round(w),
+    [l]: ''
+  }, e;
+}
+
+function pe(e) {
+  if ('end' === e) return 'start';
+  return 'start' === e ? 'end' : e;
+}
+
+var de = ['auto-start', 'auto', 'auto-end', 'top-start', 'top', 'top-end', 'right-start', 'right', 'right-end', 'bottom-end', 'bottom', 'bottom-start', 'left-end', 'left', 'left-start'];
+const se = de.slice(3);
+
+function fe(e, t = !1) {
+  const o = se.indexOf(e),
+        n = se.slice(o + 1).concat(se.slice(0, o));
+  return t ? n.reverse() : n;
+}
+
+const ae = {
+  FLIP: 'flip',
+  CLOCKWISE: 'clockwise',
+  COUNTERCLOCKWISE: 'counterclockwise'
+};
+
+function le(e, t) {
+  if (Y(e.instance.modifiers, 'inner')) return e;
+  if (e.flipped && e.placement === e.originalPlacement) return e;
+  const o = P(e.instance.popper, e.instance.reference, t.padding, t.boundariesElement, e.positionFixed);
+  let n = e.placement.split('-')[0],
+      i = A(n),
+      r = e.placement.split('-')[1] || '',
+      p = [];
+
+  switch (t.behavior) {
+    case ae.FLIP:
+      p = [n, i];
+      break;
+
+    case ae.CLOCKWISE:
+      p = fe(n);
+      break;
+
+    case ae.COUNTERCLOCKWISE:
+      p = fe(n, !0);
+      break;
+
+    default:
+      p = t.behavior;
+  }
+
+  return p.forEach((d, s) => {
+    if (n !== d || p.length === s + 1) return e;
+    n = e.placement.split('-')[0], i = A(n);
+    const f = e.offsets.popper,
+          a = e.offsets.reference,
+          l = Math.floor,
+          m = 'left' === n && l(f.right) > l(a.left) || 'right' === n && l(f.left) < l(a.right) || 'top' === n && l(f.bottom) > l(a.top) || 'bottom' === n && l(f.top) < l(a.bottom),
+          h = l(f.left) < l(o.left),
+          c = l(f.right) > l(o.right),
+          u = l(f.top) < l(o.top),
+          g = l(f.bottom) > l(o.bottom),
+          b = 'left' === n && h || 'right' === n && c || 'top' === n && u || 'bottom' === n && g,
+          w = -1 !== ['top', 'bottom'].indexOf(n),
+          y = !!t.flipVariations && (w && 'start' === r && h || w && 'end' === r && c || !w && 'start' === r && u || !w && 'end' === r && g),
+          E = !!t.flipVariationsByContent && (w && 'start' === r && c || w && 'end' === r && h || !w && 'start' === r && g || !w && 'end' === r && u),
+          x = y || E;
+    (m || b || x) && (e.flipped = !0, (m || b) && (n = p[s + 1]), x && (r = pe(r)), e.placement = n + (r ? '-' + r : ''), e.offsets.popper = O({}, e.offsets.popper, M(e.instance.popper, e.offsets.reference, e.placement)), e = R(e.instance.modifiers, e, 'flip'));
+  }), e;
+}
+
+function me(e) {
+  const {
+    popper: t,
+    reference: o
+  } = e.offsets,
+        n = e.placement.split('-')[0],
+        i = Math.floor,
+        r = -1 !== ['top', 'bottom'].indexOf(n),
+        p = r ? 'right' : 'bottom',
+        d = r ? 'left' : 'top',
+        s = r ? 'width' : 'height';
+  return t[p] < i(o[d]) && (e.offsets.popper[d] = i(o[d]) - t[s]), t[d] > i(o[p]) && (e.offsets.popper[d] = i(o[p])), e;
+}
+
+function he(e, t, o, n) {
+  var i = Math.max;
+  const r = e.match(/((?:\-|\+)?\d*\.?\d*)(.*)/),
+        p = +r[1],
+        d = r[2];
+  if (!p) return e;
+
+  if (0 === d.indexOf('%')) {
+    let e;
+
+    switch (d) {
+      case '%p':
+        e = o;
+        break;
+
+      case '%':
+      case '%r':
+      default:
+        e = n;
+    }
+
+    const i = L(e);
+    return i[t] / 100 * p;
+  }
+
+  if ('vh' === d || 'vw' === d) {
+    let e;
+    return e = 'vh' === d ? i(document.documentElement.clientHeight, window.innerHeight || 0) : i(document.documentElement.clientWidth, window.innerWidth || 0), e / 100 * p;
+  }
+
+  return p;
+}
+
+function ce(e, t, o, n) {
+  const i = [0, 0],
+        r = -1 !== ['right', 'left'].indexOf(n),
+        p = e.split(/(\+|\-)/).map(e => e.trim()),
+        d = p.indexOf(F(p, e => -1 !== e.search(/,|\s/)));
+  p[d] && -1 === p[d].indexOf(',') && console.warn('Offsets separated by white space(s) are deprecated, use a comma (,) instead.');
+  const s = /\s*,\s*|\s+/;
+  let f = -1 === d ? [p] : [p.slice(0, d).concat([p[d].split(s)[0]]), [p[d].split(s)[1]].concat(p.slice(d + 1))];
+  return f = f.map((e, n) => {
+    const i = (1 === n ? !r : r) ? 'height' : 'width';
+    let p = !1;
+    return e.reduce((e, t) => '' === e[e.length - 1] && -1 !== ['+', '-'].indexOf(t) ? (e[e.length - 1] = t, p = !0, e) : p ? (e[e.length - 1] += t, p = !1, e) : e.concat(t), []).map(e => he(e, i, t, o));
+  }), f.forEach((e, t) => {
+    e.forEach((o, n) => {
+      J(o) && (i[t] += o * ('-' === e[n - 1] ? -1 : 1));
+    });
+  }), i;
+}
+
+function ue(e, {
+  offset: t
+}) {
+  const {
+    placement: o,
+    offsets: {
+      popper: n,
+      reference: i
+    }
+  } = e,
+        r = o.split('-')[0];
+  let p;
+  return p = J(+t) ? [+t, 0] : ce(t, n, i, r), 'left' === r ? (n.top += p[0], n.left -= p[1]) : 'right' === r ? (n.top += p[0], n.left += p[1]) : 'top' === r ? (n.left += p[0], n.top -= p[1]) : 'bottom' === r && (n.left += p[0], n.top += p[1]), e.popper = n, e;
+}
+
+function ge(e, t) {
+  let o = t.boundariesElement || c(e.instance.popper);
+  e.instance.reference === o && (o = c(o));
+  const n = V('transform'),
+        i = e.instance.popper.style,
+        {
+    top: r,
+    left: p,
+    [n]: d
+  } = i;
+  i.top = '', i.left = '', i[n] = '';
+  const s = P(e.instance.popper, e.instance.reference, t.padding, o, e.positionFixed);
+  i.top = r, i.left = p, i[n] = d, t.boundaries = s;
+  const f = t.priority;
+  let a = e.offsets.popper;
+  const l = {
+    primary(e) {
+      let o = a[e];
+      return a[e] < s[e] && !t.escapeWithReference && (o = Math.max(a[e], s[e])), {
+        [e]: o
+      };
+    },
+
+    secondary(e) {
+      const o = 'right' === e ? 'left' : 'top';
+      let n = a[o];
+      return a[e] > s[e] && !t.escapeWithReference && (n = Math.min(a[o], s[e] - ('right' === e ? a.width : a.height))), {
+        [o]: n
+      };
+    }
+
+  };
+  return f.forEach(e => {
+    const t = -1 === ['left', 'top'].indexOf(e) ? 'secondary' : 'primary';
+    a = O({}, a, l[t](e));
+  }), e.offsets.popper = a, e;
+}
+
+function be(e) {
+  const t = e.placement,
+        o = t.split('-')[0],
+        n = t.split('-')[1];
+
+  if (n) {
+    const {
+      reference: t,
+      popper: i
+    } = e.offsets,
+          r = -1 !== ['bottom', 'top'].indexOf(o),
+          p = r ? 'left' : 'top',
+          d = r ? 'width' : 'height',
+          s = {
+      start: {
+        [p]: t[p]
+      },
+      end: {
+        [p]: t[p] + t[d] - i[d]
+      }
+    };
+    e.offsets.popper = O({}, i, s[n]);
+  }
+
+  return e;
+}
+
+function we(e) {
+  if (!ie(e.instance.modifiers, 'hide', 'preventOverflow')) return e;
+  const t = e.offsets.reference,
+        o = F(e.instance.modifiers, e => 'preventOverflow' === e.name).boundaries;
+
+  if (t.bottom < o.top || t.left > o.right || t.top > o.bottom || t.right < o.left) {
+    if (!0 === e.hide) return e;
+    e.hide = !0, e.attributes['x-out-of-boundaries'] = '';
+  } else {
+    if (!1 === e.hide) return e;
+    e.hide = !1, e.attributes['x-out-of-boundaries'] = !1;
+  }
+
+  return e;
+}
+
+function ye(e) {
+  const t = e.placement,
+        o = t.split('-')[0],
+        {
+    popper: n,
+    reference: i
+  } = e.offsets,
+        r = -1 !== ['left', 'right'].indexOf(o),
+        p = -1 === ['top', 'left'].indexOf(o);
+  return n[r ? 'left' : 'top'] = i[o] - (p ? n[r ? 'width' : 'height'] : 0), e.placement = A(t), e.offsets.popper = L(n), e;
+}
+
+var Ee = {
+  shift: {
+    order: 100,
+    enabled: !0,
+    fn: be
+  },
+  offset: {
+    order: 200,
+    enabled: !0,
+    fn: ue,
+    offset: 0
+  },
+  preventOverflow: {
+    order: 300,
+    enabled: !0,
+    fn: ge,
+    priority: ['left', 'right', 'top', 'bottom'],
+    padding: 5,
+    boundariesElement: 'scrollParent'
+  },
+  keepTogether: {
+    order: 400,
+    enabled: !0,
+    fn: me
+  },
+  arrow: {
+    order: 500,
+    enabled: !0,
+    fn: re,
+    element: '[x-arrow]'
+  },
+  flip: {
+    order: 600,
+    enabled: !0,
+    fn: le,
+    behavior: 'flip',
+    padding: 5,
+    boundariesElement: 'viewport',
+    flipVariations: !1,
+    flipVariationsByContent: !1
+  },
+  inner: {
+    order: 700,
+    enabled: !1,
+    fn: ye
+  },
+  hide: {
+    order: 800,
+    enabled: !0,
+    fn: we
+  },
+  computeStyle: {
+    order: 850,
+    enabled: !0,
+    fn: ne,
+    gpuAcceleration: !0,
+    x: 'bottom',
+    y: 'right'
+  },
+  applyStyle: {
+    order: 900,
+    enabled: !0,
+    fn: $,
+    onLoad: ee,
+    gpuAcceleration: void 0
+  }
+},
+    xe = {
+  placement: 'bottom',
+  positionFixed: !1,
+  eventsEnabled: !0,
+  removeOnDestroy: !1,
+  onCreate: () => {},
+  onUpdate: () => {},
+  modifiers: Ee
+};
+
+class ve {
+  constructor(e, t, o = {}) {
+    this.scheduleUpdate = () => requestAnimationFrame(this.update), this.update = r(this.update.bind(this)), this.options = O({}, ve.Defaults, o), this.state = {
+      isDestroyed: !1,
+      isCreated: !1,
+      scrollParents: []
+    }, this.reference = e && e.jquery ? e[0] : e, this.popper = t && t.jquery ? t[0] : t, this.options.modifiers = {}, Object.keys(O({}, ve.Defaults.modifiers, o.modifiers)).forEach(e => {
+      this.options.modifiers[e] = O({}, ve.Defaults.modifiers[e] || {}, o.modifiers ? o.modifiers[e] : {});
+    }), this.modifiers = Object.keys(this.options.modifiers).map(e => O({
+      name: e
+    }, this.options.modifiers[e])).sort((e, t) => e.order - t.order), this.modifiers.forEach(e => {
+      e.enabled && p(e.onLoad) && e.onLoad(this.reference, this.popper, this.options, e, this.state);
+    }), this.update();
+    const n = this.options.eventsEnabled;
+    n && this.enableEventListeners(), this.state.eventsEnabled = n;
+  }
+
+  update() {
+    return U.call(this);
+  }
+
+  destroy() {
+    return j.call(this);
+  }
+
+  enableEventListeners() {
+    return G.call(this);
+  }
+
+  disableEventListeners() {
+    return X.call(this);
+  }
+
+}
+
+ve.Utils = ('undefined' == typeof window ? global : window).PopperUtils, ve.placements = de, ve.Defaults = xe;
+var _default = ve;
+exports.default = _default;
 },{}]},{},["H1A5"], null)
 //# sourceMappingURL=stauffenbits.github.io/popper.min.a5fd241f.js.map

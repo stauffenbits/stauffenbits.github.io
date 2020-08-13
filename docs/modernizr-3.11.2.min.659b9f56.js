@@ -1,4 +1,499 @@
-parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcelRequire,u="function"==typeof require&&require;function f(t,n){if(!r[t]){if(!e[t]){var i="function"==typeof parcelRequire&&parcelRequire;if(!n&&i)return i(t,!0);if(o)return o(t,!0);if(u&&"string"==typeof t)return u(t);var c=new Error("Cannot find module '"+t+"'");throw c.code="MODULE_NOT_FOUND",c}p.resolve=function(r){return e[t][1][r]||r},p.cache={};var l=r[t]=new f.Module(t);e[t][0].call(l.exports,p,l,l.exports,this)}return r[t].exports;function p(e){return f(p.resolve(e))}}f.isParcelRequire=!0,f.Module=function(e){this.id=e,this.bundle=f,this.exports={}},f.modules=e,f.cache=r,f.parent=o,f.register=function(r,t){e[r]=[function(e,r){r.exports=t},{}]};for(var c=0;c<t.length;c++)try{f(t[c])}catch(e){i||(i=e)}if(t.length){var l=f(t[t.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==typeof define&&define.amd?define(function(){return l}):n&&(this[n]=l)}if(parcelRequire=f,i)throw i;return f}({"Ck8a":[function(require,module,exports) {
-function e(t){return(e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(t)}!function(t,n,r,o){function i(t,n){return e(t)===n}function s(e){var t=S.className,n=w._config.classPrefix||"";if(x&&(t=t.baseVal),w._config.enableJSClass){var r=new RegExp("(^|\\s)"+n+"no-js(\\s|$)");t=t.replace(r,"$1"+n+"js$2")}w._config.enableClasses&&(e.length>0&&(t+=" "+n+e.join(" "+n)),x?S.className.baseVal=t:S.className=t)}function a(t,n){if("object"==e(t))for(var r in t)P(t,r)&&a(r,t[r]);else{var o=(t=t.toLowerCase()).split("."),i=w[o[0]];if(2===o.length&&(i=i[o[1]]),void 0!==i)return w;n="function"==typeof n?n():n,1===o.length?w[o[0]]=n:(!w[o[0]]||w[o[0]]instanceof Boolean||(w[o[0]]=new Boolean(w[o[0]])),w[o[0]][o[1]]=n),s([(n&&!1!==n?"":"no-")+o.join("-")]),w._trigger(t,n)}return w}function l(){return"function"!=typeof r.createElement?r.createElement(arguments[0]):x?r.createElementNS.call(r,"http://www.w3.org/2000/svg",arguments[0]):r.createElement.apply(r,arguments)}function u(e,t,n,o){var i,s,a,u,f="modernizr",c=l("div"),d=function(){var e=r.body;return e||((e=l(x?"svg":"body")).fake=!0),e}();if(parseInt(n,10))for(;n--;)(a=l("div")).id=o?o[n]:f+(n+1),c.appendChild(a);return(i=l("style")).type="text/css",i.id="s"+f,(d.fake?d:c).appendChild(i),d.appendChild(c),i.styleSheet?i.styleSheet.cssText=e:i.appendChild(r.createTextNode(e)),c.id=f,d.fake&&(d.style.background="",d.style.overflow="hidden",u=S.style.overflow,S.style.overflow="hidden",S.appendChild(d)),s=t(c,e),d.fake?(d.parentNode.removeChild(d),S.style.overflow=u,S.offsetHeight):c.parentNode.removeChild(c),!!s}function f(e,t,r){var o;if("getComputedStyle"in n){o=getComputedStyle.call(n,e,t);var i=n.console;if(null!==o)r&&(o=o.getPropertyValue(r));else if(i){i[i.error?"error":"log"].call(i,"getComputedStyle returning null, its possible modernizr test results are inaccurate")}}else o=!t&&e.currentStyle&&e.currentStyle[r];return o}function c(e,t){return!!~(""+e).indexOf(t)}function d(e){return e.replace(/([A-Z])/g,function(e,t){return"-"+t.toLowerCase()}).replace(/^ms-/,"-ms-")}function p(e,t){var r=e.length;if("CSS"in n&&"supports"in n.CSS){for(;r--;)if(n.CSS.supports(d(e[r]),t))return!0;return!1}if("CSSSupportsRule"in n){for(var i=[];r--;)i.push("("+d(e[r])+":"+t+")");return u("@supports ("+(i=i.join(" or "))+") { #modernizr { position: absolute; } }",function(e){return"absolute"===f(e,null,"position")})}return o}function A(e){return e.replace(/([a-z])-([a-z])/g,function(e,t,n){return t+n.toUpperCase()}).replace(/^-/,"")}function m(e,t,n,r){function s(){u&&(delete L.style,delete L.modElem)}if(r=!i(r,"undefined")&&r,!i(n,"undefined")){var a=p(e,n);if(!i(a,"undefined"))return a}for(var u,f,d,m,h,v=["modernizr","tspan","samp"];!L.style&&v.length;)u=!0,L.modElem=l(v.shift()),L.style=L.modElem.style;for(d=e.length,f=0;f<d;f++)if(m=e[f],h=L.style[m],c(m,"-")&&(m=A(m)),L.style[m]!==o){if(r||i(n,"undefined"))return s(),"pfx"!==t||m;try{L.style[m]=n}catch(e){}if(L.style[m]!==h)return s(),"pfx"!==t||m}return s(),!1}function h(e,t){return function(){return e.apply(t,arguments)}}function v(e,t,n,r,o){var s=e.charAt(0).toUpperCase()+e.slice(1),a=(e+" "+O.join(s+" ")+s).split(" ");return i(t,"string")||i(t,"undefined")?m(a,t,r,o):function(e,t,n){var r;for(var o in e)if(e[o]in t)return!1===n?e[o]:i(r=t[e[o]],"function")?h(r,n||t):r;return!1}(a=(e+" "+T.join(s+" ")+s).split(" "),t,n)}function y(e,t,n){return v(e,o,o,t,n)}var g=[],b={_version:"3.11.2",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,t){var n=this;setTimeout(function(){t(n[e])},0)},addTest:function(e,t,n){g.push({name:e,fn:t,options:n})},addAsyncTest:function(e){g.push({name:null,fn:e})}},w=function(){};w.prototype=b,w=new w;var C=[],S=r.documentElement,x="svg"===S.nodeName.toLowerCase(),_="Moz O ms Webkit",T=b._config.usePrefixes?_.toLowerCase().split(" "):[];b._domPrefixes=T;var P,B=b._config.usePrefixes?" -webkit- -moz- -o- -ms- ".split(" "):["",""];b._prefixes=B,function(){var e={}.hasOwnProperty;P=i(e,"undefined")||i(e.call,"undefined")?function(e,t){return t in e&&i(e.constructor.prototype[t],"undefined")}:function(t,n){return e.call(t,n)}}(),b._l={},b.on=function(e,t){this._l[e]||(this._l[e]=[]),this._l[e].push(t),w.hasOwnProperty(e)&&setTimeout(function(){w._trigger(e,w[e])},0)},b._trigger=function(e,t){if(this._l[e]){var n=this._l[e];setTimeout(function(){var e;for(e=0;e<n.length;e++)(0,n[e])(t)},0),delete this._l[e]}},w._q.push(function(){b.addTest=a});var k=function(){var e=!("onblur"in S);return function(t,n){var r;return!!t&&(n&&"string"!=typeof n||(n=l(n||"div")),!(r=(t="on"+t)in n)&&e&&(n.setAttribute||(n=l("div")),n.setAttribute(t,""),r="function"==typeof n[t],n[t]!==o&&(n[t]=o),n.removeAttribute(t)),r)}}();b.hasEvent=k;var E=function(){var e=n.matchMedia||n.msMatchMedia;return e?function(t){var n=e(t);return n&&n.matches||!1}:function(e){var t=!1;return u("@media "+e+" { #modernizr { position: absolute; } }",function(e){t="absolute"===f(e,null,"position")}),t}}();b.mq=E;b.prefixedCSSValue=function(e,t){var n=!1,r=l("div").style;if(e in r){var o=T.length;for(r[e]=t,n=r[e];o--&&!n;)r[e]="-"+T[o]+"-"+t,n=r[e]}return""===n&&(n=!1),n};var O=b._config.usePrefixes?_.split(" "):[];b._cssomPrefixes=O;var z={elem:l("modernizr")};w._q.push(function(){delete z.elem});var L={style:z.elem.style};w._q.unshift(function(){delete L.style}),b.testAllProps=v,b.testAllProps=y,b.testProp=function(e,t,n){return m([e],o,t,n)},b.testStyles=u,w.addTest("customelements","customElements"in n),w.addTest("history",function(){var e=navigator.userAgent;return!!e&&(-1===e.indexOf("Android 2.")&&-1===e.indexOf("Android 4.0")||-1===e.indexOf("Mobile Safari")||-1!==e.indexOf("Chrome")||-1!==e.indexOf("Windows Phone")||"file:"===location.protocol)&&n.history&&"pushState"in n.history});var N=[""].concat(T);b._domPrefixesAll=N,w.addTest("pointerevents",function(){for(var e=0,t=N.length;e<t;e++)if(k(N[e]+"pointerdown"))return!0;return!1});var R=!0;try{n.postMessage({toString:function(){R=!1}},"*")}catch(t){}w.addTest("postmessage",new Boolean("postMessage"in n)),w.addTest("postmessage.structuredclones",R),w.addTest("webgl",function(){return"WebGLRenderingContext"in n});var j=!1;try{j="WebSocket"in n&&2===n.WebSocket.CLOSING}catch(t){}w.addTest("websockets",j),w.addTest("cssanimations",y("animationName","a",!0)),function(){w.addTest("csscolumns",function(){var e=!1,t=y("columnCount");try{(e=!!t)&&(e=new Boolean(e))}catch(e){}return e});for(var e,t,n=["Width","Span","Fill","Gap","Rule","RuleColor","RuleStyle","RuleWidth","BreakBefore","BreakAfter","BreakInside"],r=0;r<n.length;r++)e=n[r].toLowerCase(),t=y("column"+n[r]),"breakbefore"!==e&&"breakafter"!==e&&"breakinside"!==e||(t=t||y(n[r])),w.addTest("csscolumns."+e,t)}(),w.addTest("flexbox",y("flexBasis","1px",!0)),w.addTest("picture","HTMLPictureElement"in n),w.addAsyncTest(function(){var e,t,n=l("img"),r="sizes"in n;!r&&"srcset"in n?("data:image/gif;base64,R0lGODlhAgABAPAAAP///wAAACH5BAAAAAAALAAAAAACAAEAAAICBAoAOw==",e="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",t=function(){a("sizes",2===n.width)},n.onload=t,n.onerror=t,n.setAttribute("sizes","9px"),n.srcset=e+" 1w,data:image/gif;base64,R0lGODlhAgABAPAAAP///wAAACH5BAAAAAAALAAAAAACAAEAAAICBAoAOw== 8w",n.src=e):a("sizes",r)}),w.addTest("srcset","srcset"in l("img")),w.addTest("webworkers","Worker"in n),function(){var e,t,n,r,o,s;for(var a in g)if(g.hasOwnProperty(a)){if(e=[],(t=g[a]).name&&(e.push(t.name.toLowerCase()),t.options&&t.options.aliases&&t.options.aliases.length))for(n=0;n<t.options.aliases.length;n++)e.push(t.options.aliases[n].toLowerCase());for(r=i(t.fn,"function")?t.fn():t.fn,o=0;o<e.length;o++)1===(s=e[o].split(".")).length?w[s[0]]=r:(w[s[0]]&&(!w[s[0]]||w[s[0]]instanceof Boolean)||(w[s[0]]=new Boolean(w[s[0]])),w[s[0]][s[1]]=r),C.push((r?"":"no-")+s.join("-"))}}(),s(C),delete b.addTest,delete b.addAsyncTest;for(var M=0;M<w._q.length;M++)w._q[M]();t.Modernizr=w}(window,window,document);
+// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+parcelRequire = (function (modules, cache, entry, globalName) {
+  // Save the require from previous bundle to this closure if any
+  var previousRequire = typeof parcelRequire === 'function' && parcelRequire;
+  var nodeRequire = typeof require === 'function' && require;
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire = typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error('Cannot find module \'' + name + '\'');
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = cache[name] = new newRequire.Module(name);
+
+      modules[name][0].call(module.exports, localRequire, module, module.exports, this);
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x){
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x){
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function (id, exports) {
+    modules[id] = [function (require, module) {
+      module.exports = exports;
+    }, {}];
+  };
+
+  var error;
+  for (var i = 0; i < entry.length; i++) {
+    try {
+      newRequire(entry[i]);
+    } catch (e) {
+      // Save first error but execute all entries
+      if (!error) {
+        error = e;
+      }
+    }
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === "object" && typeof module !== "undefined") {
+      module.exports = mainExports;
+
+    // RequireJS
+    } else if (typeof define === "function" && define.amd) {
+     define(function () {
+       return mainExports;
+     });
+
+    // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+
+  // Override the current require with this new one
+  parcelRequire = newRequire;
+
+  if (error) {
+    // throw error from earlier, _after updating parcelRequire_
+    throw error;
+  }
+
+  return newRequire;
+})({"Ck8a":[function(require,module,exports) {
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+/*! modernizr 3.11.2 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-cssanimations-csscolumns-customelements-flexbox-history-picture-pointerevents-postmessage-sizes-srcset-webgl-websockets-webworkers-addtest-domprefixes-hasevent-mq-prefixedcssvalue-prefixes-setclasses-testallprops-testprop-teststyles !*/
+!function (e, t, n, r) {
+  function o(e, t) {
+    return _typeof(e) === t;
+  }
+
+  function i(e) {
+    var t = _.className,
+        n = Modernizr._config.classPrefix || "";
+
+    if (S && (t = t.baseVal), Modernizr._config.enableJSClass) {
+      var r = new RegExp("(^|\\s)" + n + "no-js(\\s|$)");
+      t = t.replace(r, "$1" + n + "js$2");
+    }
+
+    Modernizr._config.enableClasses && (e.length > 0 && (t += " " + n + e.join(" " + n)), S ? _.className.baseVal = t : _.className = t);
+  }
+
+  function s(e, t) {
+    if ("object" == _typeof(e)) for (var n in e) {
+      k(e, n) && s(n, e[n]);
+    } else {
+      e = e.toLowerCase();
+      var r = e.split("."),
+          o = Modernizr[r[0]];
+      if (2 === r.length && (o = o[r[1]]), void 0 !== o) return Modernizr;
+      t = "function" == typeof t ? t() : t, 1 === r.length ? Modernizr[r[0]] = t : (!Modernizr[r[0]] || Modernizr[r[0]] instanceof Boolean || (Modernizr[r[0]] = new Boolean(Modernizr[r[0]])), Modernizr[r[0]][r[1]] = t), i([(t && !1 !== t ? "" : "no-") + r.join("-")]), Modernizr._trigger(e, t);
+    }
+    return Modernizr;
+  }
+
+  function a() {
+    return "function" != typeof n.createElement ? n.createElement(arguments[0]) : S ? n.createElementNS.call(n, "http://www.w3.org/2000/svg", arguments[0]) : n.createElement.apply(n, arguments);
+  }
+
+  function l() {
+    var e = n.body;
+    return e || (e = a(S ? "svg" : "body"), e.fake = !0), e;
+  }
+
+  function u(e, t, r, o) {
+    var i,
+        s,
+        u,
+        f,
+        c = "modernizr",
+        d = a("div"),
+        p = l();
+    if (parseInt(r, 10)) for (; r--;) {
+      u = a("div"), u.id = o ? o[r] : c + (r + 1), d.appendChild(u);
+    }
+    return i = a("style"), i.type = "text/css", i.id = "s" + c, (p.fake ? p : d).appendChild(i), p.appendChild(d), i.styleSheet ? i.styleSheet.cssText = e : i.appendChild(n.createTextNode(e)), d.id = c, p.fake && (p.style.background = "", p.style.overflow = "hidden", f = _.style.overflow, _.style.overflow = "hidden", _.appendChild(p)), s = t(d, e), p.fake ? (p.parentNode.removeChild(p), _.style.overflow = f, _.offsetHeight) : d.parentNode.removeChild(d), !!s;
+  }
+
+  function f(e, n, r) {
+    var o;
+
+    if ("getComputedStyle" in t) {
+      o = getComputedStyle.call(t, e, n);
+      var i = t.console;
+      if (null !== o) r && (o = o.getPropertyValue(r));else if (i) {
+        var s = i.error ? "error" : "log";
+        i[s].call(i, "getComputedStyle returning null, its possible modernizr test results are inaccurate");
+      }
+    } else o = !n && e.currentStyle && e.currentStyle[r];
+
+    return o;
+  }
+
+  function c(e, t) {
+    return !!~("" + e).indexOf(t);
+  }
+
+  function d(e) {
+    return e.replace(/([A-Z])/g, function (e, t) {
+      return "-" + t.toLowerCase();
+    }).replace(/^ms-/, "-ms-");
+  }
+
+  function p(e, n) {
+    var o = e.length;
+
+    if ("CSS" in t && "supports" in t.CSS) {
+      for (; o--;) {
+        if (t.CSS.supports(d(e[o]), n)) return !0;
+      }
+
+      return !1;
+    }
+
+    if ("CSSSupportsRule" in t) {
+      for (var i = []; o--;) {
+        i.push("(" + d(e[o]) + ":" + n + ")");
+      }
+
+      return i = i.join(" or "), u("@supports (" + i + ") { #modernizr { position: absolute; } }", function (e) {
+        return "absolute" === f(e, null, "position");
+      });
+    }
+
+    return r;
+  }
+
+  function m(e) {
+    return e.replace(/([a-z])-([a-z])/g, function (e, t, n) {
+      return t + n.toUpperCase();
+    }).replace(/^-/, "");
+  }
+
+  function h(e, t, n, i) {
+    function s() {
+      u && (delete N.style, delete N.modElem);
+    }
+
+    if (i = !o(i, "undefined") && i, !o(n, "undefined")) {
+      var l = p(e, n);
+      if (!o(l, "undefined")) return l;
+    }
+
+    for (var u, f, d, h, A, v = ["modernizr", "tspan", "samp"]; !N.style && v.length;) {
+      u = !0, N.modElem = a(v.shift()), N.style = N.modElem.style;
+    }
+
+    for (d = e.length, f = 0; f < d; f++) {
+      if (h = e[f], A = N.style[h], c(h, "-") && (h = m(h)), N.style[h] !== r) {
+        if (i || o(n, "undefined")) return s(), "pfx" !== t || h;
+
+        try {
+          N.style[h] = n;
+        } catch (e) {}
+
+        if (N.style[h] !== A) return s(), "pfx" !== t || h;
+      }
+    }
+
+    return s(), !1;
+  }
+
+  function A(e, t) {
+    return function () {
+      return e.apply(t, arguments);
+    };
+  }
+
+  function v(e, t, n) {
+    var r;
+
+    for (var i in e) {
+      if (e[i] in t) return !1 === n ? e[i] : (r = t[e[i]], o(r, "function") ? A(r, n || t) : r);
+    }
+
+    return !1;
+  }
+
+  function g(e, t, n, r, i) {
+    var s = e.charAt(0).toUpperCase() + e.slice(1),
+        a = (e + " " + O.join(s + " ") + s).split(" ");
+    return o(t, "string") || o(t, "undefined") ? h(a, t, r, i) : (a = (e + " " + T.join(s + " ") + s).split(" "), v(a, t, n));
+  }
+
+  function y(e, t, n) {
+    return g(e, r, r, t, n);
+  }
+
+  var w = [],
+      C = {
+    _version: "3.11.2",
+    _config: {
+      classPrefix: "",
+      enableClasses: !0,
+      enableJSClass: !0,
+      usePrefixes: !0
+    },
+    _q: [],
+    on: function on(e, t) {
+      var n = this;
+      setTimeout(function () {
+        t(n[e]);
+      }, 0);
+    },
+    addTest: function addTest(e, t, n) {
+      w.push({
+        name: e,
+        fn: t,
+        options: n
+      });
+    },
+    addAsyncTest: function addAsyncTest(e) {
+      w.push({
+        name: null,
+        fn: e
+      });
+    }
+  },
+      Modernizr = function Modernizr() {};
+
+  Modernizr.prototype = C, Modernizr = new Modernizr();
+
+  var b = [],
+      _ = n.documentElement,
+      S = "svg" === _.nodeName.toLowerCase(),
+      x = "Moz O ms Webkit",
+      T = C._config.usePrefixes ? x.toLowerCase().split(" ") : [];
+
+  C._domPrefixes = T;
+  var P = C._config.usePrefixes ? " -webkit- -moz- -o- -ms- ".split(" ") : ["", ""];
+  C._prefixes = P;
+  var k;
+  !function () {
+    var e = {}.hasOwnProperty;
+    k = o(e, "undefined") || o(e.call, "undefined") ? function (e, t) {
+      return t in e && o(e.constructor.prototype[t], "undefined");
+    } : function (t, n) {
+      return e.call(t, n);
+    };
+  }(), C._l = {}, C.on = function (e, t) {
+    this._l[e] || (this._l[e] = []), this._l[e].push(t), Modernizr.hasOwnProperty(e) && setTimeout(function () {
+      Modernizr._trigger(e, Modernizr[e]);
+    }, 0);
+  }, C._trigger = function (e, t) {
+    if (this._l[e]) {
+      var n = this._l[e];
+      setTimeout(function () {
+        var e;
+
+        for (e = 0; e < n.length; e++) {
+          (0, n[e])(t);
+        }
+      }, 0), delete this._l[e];
+    }
+  }, Modernizr._q.push(function () {
+    C.addTest = s;
+  });
+
+  var E = function () {
+    function e(e, n) {
+      var o;
+      return !!e && (n && "string" != typeof n || (n = a(n || "div")), e = "on" + e, o = e in n, !o && t && (n.setAttribute || (n = a("div")), n.setAttribute(e, ""), o = "function" == typeof n[e], n[e] !== r && (n[e] = r), n.removeAttribute(e)), o);
+    }
+
+    var t = !("onblur" in _);
+    return e;
+  }();
+
+  C.hasEvent = E;
+
+  var B = function () {
+    var e = t.matchMedia || t.msMatchMedia;
+    return e ? function (t) {
+      var n = e(t);
+      return n && n.matches || !1;
+    } : function (e) {
+      var t = !1;
+      return u("@media " + e + " { #modernizr { position: absolute; } }", function (e) {
+        t = "absolute" === f(e, null, "position");
+      }), t;
+    };
+  }();
+
+  C.mq = B;
+
+  var z = function z(e, t) {
+    var n = !1,
+        r = a("div"),
+        o = r.style;
+
+    if (e in o) {
+      var i = T.length;
+
+      for (o[e] = t, n = o[e]; i-- && !n;) {
+        o[e] = "-" + T[i] + "-" + t, n = o[e];
+      }
+    }
+
+    return "" === n && (n = !1), n;
+  };
+
+  C.prefixedCSSValue = z;
+  var O = C._config.usePrefixes ? x.split(" ") : [];
+  C._cssomPrefixes = O;
+  var L = {
+    elem: a("modernizr")
+  };
+
+  Modernizr._q.push(function () {
+    delete L.elem;
+  });
+
+  var N = {
+    style: L.elem.style
+  };
+  Modernizr._q.unshift(function () {
+    delete N.style;
+  }), C.testAllProps = g, C.testAllProps = y;
+  C.testProp = function (e, t, n) {
+    return h([e], r, t, n);
+  }, C.testStyles = u;
+  Modernizr.addTest("customelements", "customElements" in t), Modernizr.addTest("history", function () {
+    var e = navigator.userAgent;
+    return !!e && (-1 === e.indexOf("Android 2.") && -1 === e.indexOf("Android 4.0") || -1 === e.indexOf("Mobile Safari") || -1 !== e.indexOf("Chrome") || -1 !== e.indexOf("Windows Phone") || "file:" === location.protocol) && t.history && "pushState" in t.history;
+  });
+  var R = [""].concat(T);
+  C._domPrefixesAll = R, Modernizr.addTest("pointerevents", function () {
+    for (var e = 0, t = R.length; e < t; e++) {
+      if (E(R[e] + "pointerdown")) return !0;
+    }
+
+    return !1;
+  });
+  var j = !0;
+
+  try {
+    t.postMessage({
+      toString: function toString() {
+        j = !1;
+      }
+    }, "*");
+  } catch (e) {}
+
+  Modernizr.addTest("postmessage", new Boolean("postMessage" in t)), Modernizr.addTest("postmessage.structuredclones", j), Modernizr.addTest("webgl", function () {
+    return "WebGLRenderingContext" in t;
+  });
+  var M = !1;
+
+  try {
+    M = "WebSocket" in t && 2 === t.WebSocket.CLOSING;
+  } catch (e) {}
+
+  Modernizr.addTest("websockets", M), Modernizr.addTest("cssanimations", y("animationName", "a", !0)), function () {
+    Modernizr.addTest("csscolumns", function () {
+      var e = !1,
+          t = y("columnCount");
+
+      try {
+        e = !!t, e && (e = new Boolean(e));
+      } catch (e) {}
+
+      return e;
+    });
+
+    for (var e, t, n = ["Width", "Span", "Fill", "Gap", "Rule", "RuleColor", "RuleStyle", "RuleWidth", "BreakBefore", "BreakAfter", "BreakInside"], r = 0; r < n.length; r++) {
+      e = n[r].toLowerCase(), t = y("column" + n[r]), "breakbefore" !== e && "breakafter" !== e && "breakinside" !== e || (t = t || y(n[r])), Modernizr.addTest("csscolumns." + e, t);
+    }
+  }(), Modernizr.addTest("flexbox", y("flexBasis", "1px", !0)), Modernizr.addTest("picture", "HTMLPictureElement" in t), Modernizr.addAsyncTest(function () {
+    var e,
+        t,
+        n,
+        r = a("img"),
+        o = ("sizes" in r);
+    !o && "srcset" in r ? (t = "data:image/gif;base64,R0lGODlhAgABAPAAAP///wAAACH5BAAAAAAALAAAAAACAAEAAAICBAoAOw==", e = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", n = function n() {
+      s("sizes", 2 === r.width);
+    }, r.onload = n, r.onerror = n, r.setAttribute("sizes", "9px"), r.srcset = e + " 1w," + t + " 8w", r.src = e) : s("sizes", o);
+  }), Modernizr.addTest("srcset", "srcset" in a("img")), Modernizr.addTest("webworkers", "Worker" in t), function () {
+    var e, t, n, r, i, s, a;
+
+    for (var l in w) {
+      if (w.hasOwnProperty(l)) {
+        if (e = [], t = w[l], t.name && (e.push(t.name.toLowerCase()), t.options && t.options.aliases && t.options.aliases.length)) for (n = 0; n < t.options.aliases.length; n++) {
+          e.push(t.options.aliases[n].toLowerCase());
+        }
+
+        for (r = o(t.fn, "function") ? t.fn() : t.fn, i = 0; i < e.length; i++) {
+          s = e[i], a = s.split("."), 1 === a.length ? Modernizr[a[0]] = r : (Modernizr[a[0]] && (!Modernizr[a[0]] || Modernizr[a[0]] instanceof Boolean) || (Modernizr[a[0]] = new Boolean(Modernizr[a[0]])), Modernizr[a[0]][a[1]] = r), b.push((r ? "" : "no-") + a.join("-"));
+        }
+      }
+    }
+  }(), i(b), delete C.addTest, delete C.addAsyncTest;
+
+  for (var W = 0; W < Modernizr._q.length; W++) {
+    Modernizr._q[W]();
+  }
+
+  e.Modernizr = Modernizr;
+}(window, window, document);
 },{}]},{},["Ck8a"], null)
 //# sourceMappingURL=stauffenbits.github.io/modernizr-3.11.2.min.659b9f56.js.map

@@ -280,7 +280,7 @@ section:not(.active) > .decor {
 }
 
 section.active > .decor {
-  color: red;
+  color: tomato;
 }
 
 section.active > .title {
@@ -357,10 +357,6 @@ canvas {
   height: 400px;
 }
 
-a, a:active, a:visited {
-  color: yellow;
-}
-
 .jmm-collapsed.t01 {
   background: url('../static/A Sketch P8-01.jpeg') no-repeat;
 }
@@ -412,8 +408,8 @@ h2.decor {
   color: tomato;
 }
 
-a.decor {
-  color: purple;
+a.decor, a.decor:visited, a.decor:active {
+  color: yellow;
 }
 
 .title.decor {

@@ -357,8 +357,8 @@ canvas {
   height: 400px;
 }
 
-a {
-  color: lightskyblue;
+a, a:active, a:visited {
+  color: yellow;
 }
 
 .jmm-collapsed.t01 {

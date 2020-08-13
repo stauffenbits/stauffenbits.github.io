@@ -137,4 +137,4 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 })(); // Place any jQuery/helper plugins in here.
 },{}]},{},["yKV9"], null)
-//# sourceMappingURL=stauffenbits.github.io/plugins.7f97feee.js.map
+//# sourceMappingURL=https://stauffenbits.github.io/plugins.7f97feee.js.map

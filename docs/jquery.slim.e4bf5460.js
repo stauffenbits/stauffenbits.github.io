@@ -9109,4 +9109,4 @@ return jQuery;
 } );
 
 },{"process":"Re0G"}]},{},["KQ16"], null)
-//# sourceMappingURL=stauffenbits.github.io/jquery.slim.e4bf5460.js.map
+//# sourceMappingURL=https://stauffenbits.github.io/jquery.slim.e4bf5460.js.map

@@ -43439,4 +43439,4 @@ var heart = /*#__PURE__*/function () {
 
 window.heart = heart;
 },{"/js/vendor/fourd/fourd.js":"gECN","regenerator-runtime/runtime":"KA2S"}]},{},["d6sW"], null)
-//# sourceMappingURL=stauffenbits.github.io/main.fb6bbcaf.js.map
+//# sourceMappingURL=https://stauffenbits.github.io/main.fb6bbcaf.js.map

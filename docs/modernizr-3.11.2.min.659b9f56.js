@@ -496,4 +496,4 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   e.Modernizr = Modernizr;
 }(window, window, document);
 },{}]},{},["Ck8a"], null)
-//# sourceMappingURL=stauffenbits.github.io/modernizr-3.11.2.min.659b9f56.js.map
+//# sourceMappingURL=https://stauffenbits.github.io/modernizr-3.11.2.min.659b9f56.js.map

@@ -408,12 +408,8 @@ h2.decor {
   color: tomato;
 }
 
-a.decor, a.decor:visited, a.decor:active {
-  color: yellow;
-}
-
-.title.decor {
-  color: purple !important;
+a.title, a.title:visited, a.title:active {
+  color: yellow !important;
 }
 
 .hidden .section-body.decor {

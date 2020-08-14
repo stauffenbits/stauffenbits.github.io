@@ -2,10 +2,17 @@
 import FourD from '/js/vendor/fourd/fourd.js';
 import 'regenerator-runtime/runtime';
 
-import draw from './vendor/box/bin/box.js';
+import {BoxDrawer} from './vendor/box/bin/BoxDrawer';
 
 import $ from 'jquery';
 $(document).ready(function(){
+
+window.drawBox = function(){
+  var expression = $('#expression').val();
+  console.log(expression);
+  var box = new BoxDrawer();
+  $('pre#output').html(box.draw(expression));
+};
 
 window.toggleSectionBody = function(elem){
   elem.parentNode
@@ -90,5 +97,5 @@ var heart = async function(){
 }
 
 window.heart = heart;
-window.draw = draw;
+
 });

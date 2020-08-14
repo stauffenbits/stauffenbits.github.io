@@ -25,8 +25,6 @@
 
 <body class="container-fluid">
 
-  <pre class="background"></pre>
-
   <header>
     <h1>{</h1>
     <p class="title">Joshua M. Moore's portfolio page ...</p>
@@ -278,8 +276,11 @@
       <div class="hidden section-body">
         <a name="box-cmd"></a>
         <p>Enter a box expression to draw it:</p>
-        <input class="form-control" ng-model="expression">
-        <button class="btn btn-outline" ng-click="draw(expression)">Draw</button>
+        <input id="expression" class="form-control">
+        <button id="draw-me" class="btn btn-outline" onclick="drawBox()">Draw</button>
+
+
+        <pre id="output">Output will appear here</pre>
 
       </div>
 

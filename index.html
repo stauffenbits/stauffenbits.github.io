@@ -9,7 +9,7 @@
 
   <meta property="og:title" conten="Joshua M. Moore's Portfolio">
   <meta property="og:type" content="">
-  <meta property="og:url" content="https://stauffenbits.github.io/">
+  <meta property="og:url" content="https://code.joshuamoore.dev:5000/">
   <meta property="og:image" content="">
 
   <link rel="manifest" href="site.webmanifest">
@@ -24,6 +24,8 @@
 </head>
 
 <body class="container-fluid">
+
+  <pre class="background"></pre>
 
   <header>
     <h1>{</h1>
@@ -262,6 +264,23 @@
         <a href="https://github.com/box-lang/box">box</a> is the interpreter. It reads commands either from standard in or from file, and writes output directly to the screen. </a>
         <a href="https://github.com/box-lang/box-kernel">box_kernel</a> is a Jupyter kernel drawing on the Echo and Bash kernels. 
         <a href="https://github.com/box-lang/sample-boxes">sample-boxes</a> is a list of sample usage. 
+      </div>
+
+      <h2 class="closing decor">}</h2>
+    </section>
+
+    <!-- box -->
+    <section class="col-lg-4 col-sm-12 jmm-collapsed t11">
+      <h2 class="opening decor">{</h2>
+      <a class="title decor" href="#box-cmd" onclick="toggleSectionBody(this)">box cmd</a>
+      <span class="hidden section-body decor">...</span>
+
+      <div class="hidden section-body">
+        <a name="box-cmd"></a>
+        <p>Enter a box expression to draw it:</p>
+        <input class="form-control" ng-model="expression">
+        <button class="btn btn-outline" ng-click="draw(expression)">Draw</button>
+
       </div>
 
       <h2 class="closing decor">}</h2>

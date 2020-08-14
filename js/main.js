@@ -2,6 +2,11 @@
 import FourD from '/js/vendor/fourd/fourd.js';
 import 'regenerator-runtime/runtime';
 
+import draw from './vendor/box/bin/box.js';
+
+import $ from 'jquery';
+$(document).ready(function(){
+
 window.toggleSectionBody = function(elem){
   elem.parentNode
   .querySelectorAll('.section-body')
@@ -85,3 +90,5 @@ var heart = async function(){
 }
 
 window.heart = heart;
+window.draw = draw;
+});

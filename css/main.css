@@ -397,6 +397,10 @@ canvas {
   background: url('../static/background-box.png') no-repeat;
 }
 
+.jmm-collapsed.t11 {
+  background: url('../static/background-box.png') no-repeat;
+}
+
 .jmm-collapsed {
   background-size: contain;
   background-repeat: no-repeat;
@@ -420,7 +424,14 @@ a.title, a.title:visited, a.title:active {
   transform: translateY(15px);
 }
 
-
 .jmm-collapsed>.title {
   transform: translateY(15px);
+}
+
+.background {
+  position: static;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
 }

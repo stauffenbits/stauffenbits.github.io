@@ -224,9 +224,9 @@
       <div class="hidden section-body">
         <a name="box"></a>
         Welcome to the wonderful world of boxes. ASCII boxes, specifically. Specify boxes. Draw boxes. Now in a Jupyter Notebook!
-        <a href="https://github.com/box-lang/box">box</a> is the interpreter. It reads commands either from standard in or from file, and writes output directly to the standard out. </a>
-        <a href="https://github.com/box-lang/box-kernel">box_kernel</a> is a Jupyter kernel drawing on the Echo and Bash kernels. 
-        <a href="https://github.com/box-lang/sample-boxes">sample-boxes</a> is a list of sample usage. 
+        <a target="_blank" href="https://github.com/box-lang/box">box</a> is the interpreter. It reads commands either from standard in or from file, and writes output directly to the standard out. </a>
+        <a target="_blank" href="https://github.com/box-lang/box-kernel">box_kernel</a> is a Jupyter kernel drawing on the Echo and Bash kernels. 
+        <a target="_blank" href="https://github.com/box-lang/sample-boxes">sample-boxes</a> is a list of sample usage. 
       </div>
 
       <h2 class="closing decor">}</h2>
@@ -242,10 +242,11 @@
         <a name="box-cmd"></a>
         <form>
         <p>Enter a box expression to draw it:</p>
-        <form onsubmit="(e) => {drawBox(); return false;}">
+        <form action="#">
           <input id="expression" class="form-control" placeholder="[-[] []]">
-          <button type="submit" id="draw-me" class="btn btn-outline">Draw!</button>
+          <button type="submit" id="draw-me" class="btn btn-outline" onclick="drawBox()">Draw!</button>
         </form>
+        <pre id="output"></pre>
     
       </div>
 
@@ -279,7 +280,7 @@
     <!-- appointments -->
     <section class="col-lg-4 col-sm-12 jmm-collapsed t07">
       <h2 class="opening decor">{</h2>
-      <a class="title decor" href="#appointment" onclick="toggleSectionBody(this)">Chat</a>
+      <a class="title decor" href="#appointment" onclick="toggleSectionBody(this)">chat</a>
       <span class="hidden section-body decor">...</span>
 
       <div class="hidden section-body">

@@ -10,7 +10,7 @@
   "scripts": {
     "build": "parcel build index.html --out-dir docs/ --public-url /",
     "github": "parcel build index.html --public-url https://stauffenbits.github.io/ --out-dir docs/ && git add . && git commit -m 'auto' && git push github main",
-    "dev": "parcel index.html --open",
+    "dev": "parcel index.html --public-url /test/",
     "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

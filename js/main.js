@@ -12,6 +12,8 @@ window.drawBox = function(){
   console.log(expression);
   var box = new BoxDrawer();
   $('pre#output').html(box.draw(expression));
+
+  return false;
 };
 
 window.toggleSectionBody = function(elem){

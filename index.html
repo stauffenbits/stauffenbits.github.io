@@ -57,13 +57,13 @@
       <div class="hidden section-body">
         <a name="intro"></a>
         <p>
-          After jobbing throughout high school, first at a grocery store and a furniture store, then at a kitchen, a hotel, and a TV station, Josh attended Seattle University. After taking a few CS classes and passing a higher level CS class, he switched majors to Computer Science and Software Engineering. After dropping out, he worked his way up from video game tester to senior software engineer.
+          Joshua M Moore loves graphs. Manipulating programs is manipulating control and information flow graphs. Business processes? Graphs. Engineering Assemblies? Definitely graphs, not trees. 
         </p>
         <p>
-          He's a quick study, and an empathetic friend, if a little introverted and withdrawn. If you haven't heard from Josh in a while, you can reach him at <a href="mailto:moore.joshua@pm.me">moore.joshua@pm.me</a>
+          He's not the fastest specialist, but he's a recognized expert in Javascript, HTML5 and SQL, and codes graphs for fun. His mission is to democratize graph editing and sharing tools. He's a shy megalomaniac, and wants you all to see what he sees. 
         </p>
         <p>
-          Joshua is interested in graph theory. He spent the past decade trying to understand "Dynamic Multilevel Graph Visualization". He didn't say he was fast. Click four d for more!
+          He won't shut up about graphs!
         </p>
       </div>
 
@@ -79,11 +79,7 @@
       <div class="hidden section-body">
         <a name="resume"></a>
         <p>
-          Peruse this beautiful handcrafted, machine squeezed PDF for my professional and academic (non) qualifications.
-        </p>
-
-        <p>
-          Joshua has been out of work since January. 
+          Here's a copy of my resume. You bring the requirements, I bring the commits. 
         </p>
       
         <object 
@@ -105,11 +101,16 @@
       <div class="hidden section-body">
         <a name="eight-queens"></a>
         <p>
-          The eBook <a target="_blank" href="https://www.amazon.com/Eight-Queens-Solutions-EIght-Problem-ebook/dp/B08BRKJPV5">Eight Queens - 76 Solutions to the Eight Queens Problem</a>
-          is out now on Amazon! It features an introduction by myself, and beautiful artwork by Jordan Kump of ZoundsDesigns. Hardly any trees were killed for this book.
+          Eight Queens is a riddle, passed down by his father, that has inspired countless hour of tea drinking, Turkish pop music consuming, and riddle solving. 
         </p>
-        <p>There's also the <a target="_blank" href="https://stauffenbits.github.io/eight-queens">web page</a> I used to create the pages for the book. Check out the source code for an example of a web worker in action.</p>
-        <p>And of course, you can find the source at <a target="_blank" href="https://github.com/stauffenbits/eight-queens">github</a>.</p>
+
+        <p>
+          Before you click the next link, Joshua Moore challenges you to solve the riddle yourself: Take eight pawns, pretend they're queens, and set up all eight queens on a chess board so that no two queens threaten each other. It's possible. And there is more than one solution. 
+        </p>
+
+        <p>
+          For the impatient: <a target="_blank" href="https://joshuamoore.dev/eight-queens/">All Eight Queens Solutions</a>
+        </p>
       </div>
 
       <h2 class="closing decor">}</h2>
@@ -126,7 +127,6 @@
         <p>
           FourD is a utility for displaying small, but dynamic graphs inside of web pages. Here is an example:
         </p>
-      
 
         <button class="btn" onclick="heart()">Click me &lt;3</button>
         <div id="display-container">
@@ -136,14 +136,14 @@
         </div>
 
         <p>
-          This implementation follows along the physics metaphor introduced in <i>Dynamic Multilevel Graph Visualization</i> (Veldhuizen 2007):
+          This is a temporary implementation Joshua wrote up while trying to understand <i>Dynamic Multilevel Graph Visualization</i> (Veldhuizen 2007):
           <ul>
             <li>Vertices (the black boxes) repel each other as if by magnetic force.</li>
             <li>Edges pull two vertices back together, as if they were springs.</li>
             <li>The result is an automatic layout of all supplied vertices and edges.</li>
           </ul>
 
-          After that, it's a lotta bit of calculus. There are four main commands to this widget: 
+          There are four main commands to this widget: 
           <ul>
             <li>vertex add_vertex( options )</li>
             <li>void remove_vertex( vertex.id )</li>
@@ -151,7 +151,7 @@
             <li>void remove_edge( edge.id )</li>
           </ul>
 
-          You can find the source code to the whole thing <a target="_blank" href="https://github.com/stauffenbits/fourd-starter-kit">here</a>.
+          <a target="_blank" href="https://github.com/stauffenbits/fourd-starter-kit">Source Code</a>.
         </p>
       </div>
 
@@ -167,17 +167,13 @@
       <div class="hidden section-body">
         <a name="social-cartography"></a>
         <p>
-          CASG is a perpetually unfinished prototype for editing 3D graphs, and saving them - PGP encrypted - to your <a target="_blank" href="https://5apps.com">RemoteStorage.js</a> account or your device.
-          Betraying the S in the name, it does not currently do sharing. This will be the case until someone gives me a round toit.
+          CASG is an unfinished prototype that lets you edit 3D graphs and save them, PGP encrypted, to your <a target="_blank" href="https://5apps.com">RemoteStorage.js account</a> or your device.
+          It is written for the desktop, because CSS is hard. 
 
           <a target="_blank" href="https://social-cartography.github.io">social-cartography.github.io</a>
+          Please excuse the missing manual:
 
-          Sorry about the missing manual, I think it's lost to the pandemic. 
-          Create a key pair, confirm the key.
-          Create a new graph.
-          Commands take these two forms:
-          A>B draws a straight line between A and B, creating vertices for A and B as necessary
-          A@B draws a mask between A and B called "A@B". This is useful for loosening the display of otherwise dense graphs.
+          Syntax for adding new edges: LabelA>LabelB or LabelA@LabelB
         </p>
       </div>
 
@@ -193,8 +189,8 @@
       <div class="hidden section-body">
         <a name="notes"></a>
         <p>
-          Notes is a simple mind mapper X markdown note taking <a target="_blank" href="https://stauffenbits.github.io/notes/">app</a>.
-          Another concept app, definitely not ready for production use yet.
+          Notes is an (unencrypted) mind mapping prototype <a target="_blank" href="https://stauffenbits.github.io/notes/">app</a>.
+          Not ready for production use. 
         </p>
       </div>
       
@@ -219,37 +215,6 @@
       <h2 class="closing decor">}</h2>
     </section>
 
-    <!-- blog -->
-    <section class="col-lg-4 col-sm-12 jmm-collapsed t08">
-      <h2 class="opening decor">{</h2>
-      <a class="title decor" href="#blog" onclick="toggleSectionBody(this)">blog</a>
-      <span class="hidden section-body decor">...</span>
-
-      <div class="hidden section-body">
-        <a name="blog"></a>
-        I enjoyed Computer Science, besides for its shiny recursion, for its low character count. 
-        
-        What I'm saying here is, don't expect a whole lotta posts, but if you're into that sort of thing, there is a blog...
-        <a href="https://blog.force-graph.io/">blog.force-graph.io</a>
-      </div>
-
-      <h2 class="closing decor">}</h2>
-    </section>
-
-    <!-- archive -->
-    <section class="col-lg-4 col-sm-12 jmm-collapsed t09">
-      <h2 class="opening decor">{</h2>
-      <a class="title decor" href="#archive" onclick="toggleSectionBody(this)">archive</a>
-      <span class="hidden section-body decor">...</span>
-
-      <div class="hidden section-body">
-        <a name="archive"></a>
-        Joshua's old portfolio page at <a target="_blank" href="https://thwee-alchemist.github.io">thwee-alchemist.github.io</a>
-      </div>
-
-      <h2 class="closing decor">}</h2>
-    </section>
-
     <!-- box -->
     <section class="col-lg-4 col-sm-12 jmm-collapsed t10">
       <h2 class="opening decor">{</h2>
@@ -258,8 +223,8 @@
 
       <div class="hidden section-body">
         <a name="box"></a>
-        Welcome to the wonderful world of boxes. Specify boxes. Now in a Jupyter Notebook!
-        <a href="https://github.com/box-lang/box">box</a> is the interpreter. It reads commands either from standard in or from file, and writes output directly to the screen. </a>
+        Welcome to the wonderful world of boxes. ASCII boxes, specifically. Specify boxes. Draw boxes. Now in a Jupyter Notebook!
+        <a href="https://github.com/box-lang/box">box</a> is the interpreter. It reads commands either from standard in or from file, and writes output directly to the standard out. </a>
         <a href="https://github.com/box-lang/box-kernel">box_kernel</a> is a Jupyter kernel drawing on the Echo and Bash kernels. 
         <a href="https://github.com/box-lang/sample-boxes">sample-boxes</a> is a list of sample usage. 
       </div>
@@ -275,13 +240,13 @@
 
       <div class="hidden section-body">
         <a name="box-cmd"></a>
+        <form>
         <p>Enter a box expression to draw it:</p>
-        <input id="expression" class="form-control" placeholder="[-[] []]">
-        <button id="draw-me" class="btn btn-outline" onclick="drawBox()">Draw</button>
-        <br>
-
-        <pre id="output">Output will appear here</pre>
-
+        <form onsubmit="(e) => {drawBox(); return false;}">
+          <input id="expression" class="form-control" placeholder="[-[] []]">
+          <button type="submit" id="draw-me" class="btn btn-outline">Draw!</button>
+        </form>
+    
       </div>
 
       <h2 class="closing decor">}</h2>
@@ -297,14 +262,14 @@
         <a name="acrostics"></a>
         <p>
           Once upon a time, behind doors that locked from the outside, a fellow patient showed me the 
-          wonderful art of acrostics, making sentences of words that begin with each others levels. 
-          She had a lot of practice in it, and scrawled pages of pages of valid acrostics on paper. 
+          wonderful art of acrostics, making sentences from words that begin with each others letters. 
+          She had a lot of practice in it, and scrawled pages upon pages of colorful acrostics on paper.
+          <br> 
           I find that using this program helps me write poetically... It forces me to be economic with words,
           and as a result I often surprise myself with what I write.
         </p>
         <p>
-          Find the program here: 
-          <a href="https://stauffenbits.github.io/acrostics">acrostics</a>
+          Create <a href="https://stauffenbits.github.io/acrostics">acrostics</a>!
         </p>
       </div>
 
@@ -314,16 +279,14 @@
     <!-- appointments -->
     <section class="col-lg-4 col-sm-12 jmm-collapsed t07">
       <h2 class="opening decor">{</h2>
-      <a class="title decor" href="#appointment" onclick="toggleSectionBody(this)">Appointment</a>
+      <a class="title decor" href="#appointment" onclick="toggleSectionBody(this)">Chat</a>
       <span class="hidden section-body decor">...</span>
 
       <div class="hidden section-body">
         <a name="appointment"></a>
 
-        <p>
-          Want to chat or ask about a project?
-          <a href="https://cloud.joshuamoore.dev/index.php/apps/appointments/pub/niGQXAHz_q%2BRaw%3D%3D/form" target="_blank">Let's talk!</a>
-        </p>
+        I made a chat room: <a target="_blank" href="/chat/">Matrix Chat</a>.
+        To connect using your own client, Mozilla Thunderbird, for example: Use <pre>https://matrix.leudla.net</pre> as the server name, using a chat client such as <a target="_blank" href="https://app.element.io/">app.element.io</a>.
       </div>
 
       <h2 class="closing decor">}</h2>
